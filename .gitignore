@@ -1,0 +1,23 @@
+# Dependencias (NUNCA deben subirse a Git)
+node_modules/
+.pnp
+.pnp.js
+
+# Salida de compilación
+dist/
+dist-ssr/
+
+# Cachés y temporales
+.vite/
+*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editores y sistema
+.DS_Store
+.vscode/
+.idea/
+Thumbs.db
