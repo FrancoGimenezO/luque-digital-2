@@ -332,6 +332,61 @@ button {
   padding-left: 1.6rem;
 }
 
+/* SEGUNDO NIVEL (SUB-DROPDOWN) */
+.dropdown li {
+  position: relative;
+}
+.dropdown li.has-sub-dropdown > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sub-arrow {
+  color: #888888;
+  margin-left: 8px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.dropdown li.has-sub-dropdown:hover > a .sub-arrow {
+  color: var(--accent-yellow);
+  transform: translateX(3px);
+}
+.sub-dropdown {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: #ffffff;
+  min-width: 270px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-top: 3px solid var(--accent-yellow);
+  list-style: none;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  z-index: 1005;
+}
+.dropdown li:hover > .sub-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+.sub-dropdown li a {
+  display: block;
+  padding: 0.75rem 1.2rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #444444;
+  border-bottom: 1px solid var(--border-light);
+  transition: var(--transition);
+}
+.sub-dropdown li a:hover {
+  background-color: #f8f9fa;
+  color: var(--primary-blue);
+  padding-left: 1.5rem;
+}
+
 /* Botón Buscador Modal */
 .btn-search-trigger {
   background: #f1f4f8;
@@ -1829,6 +1884,29 @@ button {
   }
   .dropdown li a {
     padding: 0.65rem 0.8rem;
+  }
+  .dropdown li.has-sub-dropdown {
+    display: flex;
+    flex-direction: column;
+  }
+  .sub-dropdown {
+    position: static;
+    box-shadow: none;
+    border-top: none;
+    border-left: 2px solid var(--accent-yellow);
+    margin-left: 1rem;
+    background: #fafbfc;
+    transform: none;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+  }
+  .sub-dropdown.sub-dropdown-open {
+    display: block;
+  }
+  .sub-dropdown li a {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.82rem;
   }
   .btn-search-trigger {
     margin-top: 1.5rem;

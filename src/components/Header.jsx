@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Search, ChevronDown, Phone, MapPin, Mail, Clock } from 'lucide-react';
+import { Menu, X, Search, ChevronDown, ChevronRight, Phone, MapPin, Mail, Clock } from 'lucide-react';
 
 export default function Header({ onOpenSearch }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scheduleOpen, setScheduleOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeSubDropdown, setActiveSubDropdown] = useState(null);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -19,6 +20,11 @@ export default function Header({ onOpenSearch }) {
 
   const toggleDropdown = (name) => {
     setActiveDropdown((prev) => (prev === name ? null : name));
+    setActiveSubDropdown(null);
+  };
+
+  const toggleSubDropdown = (name) => {
+    setActiveSubDropdown((prev) => (prev === name ? null : name));
   };
 
   return (
@@ -30,7 +36,7 @@ export default function Header({ onOpenSearch }) {
         <span className="ribbon-blue"></span>
       </div>
 
-      {/* BARRA SUPERIOR MODERNA CON HORARIOS INTERACTIVOS Y DATOS REALES DE LUQUE */}
+      {/* BARRA SUPERIOR CON HORARIOS INTERACTIVOS Y DATOS REALES DE LUQUE */}
       <aside className="top-bar">
         <div className="top-left">
           <span className="top-location">
@@ -83,7 +89,7 @@ export default function Header({ onOpenSearch }) {
         </div>
       </aside>
 
-      {/* CABECERA PRINCIPAL Y NAVEGACIÓN MODERNA */}
+      {/* CABECERA PRINCIPAL Y NAVEGACIÓN */}
       <header className="main-header">
         <div className="header-container">
           {/* Logotipo institucional con Escudo de Luque */}
@@ -203,7 +209,7 @@ export default function Header({ onOpenSearch }) {
                 </ul>
               </li>
 
-              {/* TRANSPARENCIA ▾ */}
+              {/* TRANSPARENCIA ▾ (CON TODOS LOS ÍTEMS Y SUB-MENÚS SOLICITADOS) */}
               <li className="nav-item has-dropdown">
                 <a
                   href="https://www.luque.gov.py/transparencia/"
@@ -217,25 +223,156 @@ export default function Header({ onOpenSearch }) {
                   TRANSPARENCIA <ChevronDown size={13} className="nav-arrow" />
                 </a>
                 <ul className={`dropdown ${activeDropdown === 'transparencia' ? 'dropdown-open' : ''}`}>
+                  {/* 1. Denuncias O Consultas */}
+                  <li>
+                    <a href="https://www.luque.gov.py/formulario-transparencia/" target="_blank" rel="noreferrer">
+                      Denuncias O Consultas
+                    </a>
+                  </li>
+
+                  {/* 2. Ordenanzas Municipales */}
                   <li>
                     <a href="https://www.luque.gov.py/ordenanzas-municipales/" target="_blank" rel="noreferrer">
                       Ordenanzas Municipales
                     </a>
                   </li>
+
+                  {/* 3. Resoluciones Municipales */}
                   <li>
                     <a href="https://www.luque.gov.py/resoluciones-municipales/" target="_blank" rel="noreferrer">
                       Resoluciones Municipales
                     </a>
                   </li>
+
+                  {/* 4. Consejo Del FONACIDE */}
                   <li>
-                    <a href="https://www.luque.gov.py/fonacide/" target="_blank" rel="noreferrer">
-                      Consejo del FONACIDE
+                    <a href="https://www.luque.gov.py/consejo-de-fonacide/" target="_blank" rel="noreferrer">
+                      Consejo Del FONACIDE
                     </a>
                   </li>
+
+                  {/* 5. Normativas Legales Vigentes */}
+                  <li>
+                    <a href="https://www.luque.gov.py/normativas-legales-vigentes/" target="_blank" rel="noreferrer">
+                      Normativas Legales Vigentes
+                    </a>
+                  </li>
+
+                  {/* 6. Presupuesto General */}
                   <li>
                     <a href="https://www.luque.gov.py/presupuesto-general/" target="_blank" rel="noreferrer">
                       Presupuesto General
                     </a>
+                  </li>
+
+                  {/* 7. PATIP ▸ */}
+                  <li className="has-sub-dropdown">
+                    <a
+                      href="https://www.luque.gov.py/plan-anual-de-transparencia-e-integridad-publica/"
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => {
+                        if (window.innerWidth <= 960) {
+                          e.preventDefault();
+                          toggleSubDropdown('patip');
+                        }
+                      }}
+                    >
+                      <span>PATIP</span>
+                      <ChevronRight size={13} className="sub-arrow" />
+                    </a>
+                    <ul className={`sub-dropdown ${activeSubDropdown === 'patip' ? 'sub-dropdown-open' : ''}`}>
+                      <li>
+                        <a href="https://www.luque.gov.py/matriz-de-seguimiento-cumplimiento-del-patip/" target="_blank" rel="noreferrer">
+                          Matriz de Seguimiento Cumplimiento
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.luque.gov.py/plan-anual-de-transparencia-e-integridad-publica/" target="_blank" rel="noreferrer">
+                          Plan Anual de Transparencia (PATIP)
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  {/* 8. Ley 5189/14 ▸ */}
+                  <li className="has-sub-dropdown">
+                    <a
+                      href="https://www.luque.gov.py/ley-5189-2014/"
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => {
+                        if (window.innerWidth <= 960) {
+                          e.preventDefault();
+                          toggleSubDropdown('ley5189');
+                        }
+                      }}
+                    >
+                      <span>Ley 5189/14</span>
+                      <ChevronRight size={13} className="sub-arrow" />
+                    </a>
+                    <ul className={`sub-dropdown ${activeSubDropdown === 'ley5189' ? 'sub-dropdown-open' : ''}`}>
+                      <li>
+                        <a href="https://www.luque.gov.py/salarios-de-funcionarios/" target="_blank" rel="noreferrer">
+                          Salarios de Funcionarios Ley 5189/14
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.luque.gov.py/ley-5189-2014/" target="_blank" rel="noreferrer">
+                          Estructura y Remuneraciones
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  {/* 9. Ley 5282/14 */}
+                  <li>
+                    <a href="https://www.luque.gov.py/ley-5282-14/" target="_blank" rel="noreferrer">
+                      Ley 5282/14
+                    </a>
+                  </li>
+
+                  {/* 10. LEY 7089/23 ▸ */}
+                  <li className="has-sub-dropdown">
+                    <a
+                      href="https://www.luque.gov.py/ley-7089-2023/"
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => {
+                        if (window.innerWidth <= 960) {
+                          e.preventDefault();
+                          toggleSubDropdown('ley7089');
+                        }
+                      }}
+                    >
+                      <span>LEY 7089/23</span>
+                      <ChevronRight size={13} className="sub-arrow" />
+                    </a>
+                    <ul className={`sub-dropdown ${activeSubDropdown === 'ley7089' ? 'sub-dropdown-open' : ''}`}>
+                      <li>
+                        <a
+                          href="https://www.luque.gov.py/wp-content/uploads/2026/03/ALTAS-Y-BAJAS-2025-RESOLUCIONES-LEY-7089-2023.pdf"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Altas y Bajas – Resoluciones 2025 Ley 7089/23
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://www.luque.gov.py/wp-content/uploads/2026/03/ALTAS-Y-BAJAS-2026-RESOLUCIONES-LEY-7089-23.pdf"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Altas y Bajas – Resoluciones 2026 Ley 7089/23
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.luque.gov.py/ley-7089-2023/" target="_blank" rel="noreferrer">
+                          Marco Legal Conflicto de Intereses
+                        </a>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </li>

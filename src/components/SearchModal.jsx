@@ -8,8 +8,9 @@ const popularKeywords = [
   'Ordenanza 05/2024',
   'Manual de funciones',
   'Organigrama',
-  'Impuesto inmobiliario',
-  'Patentes comerciales',
+  'PATIP',
+  'Ley 5189/14',
+  'Ley 7089/23',
   'FONACIDE',
 ];
 
@@ -17,8 +18,14 @@ const directDocuments = [
   { title: 'Manual de Funciones', href: 'https://www.luque.gov.py/manual-de-funciones/', type: 'Manual institucional' },
   { title: 'Organigrama Municipal', href: 'https://www.luque.gov.py/organigrama-municipal/', type: 'Estructura directiva' },
   { title: 'Ordenanza de Tránsito 05/2024', href: 'https://www.luque.gov.py/ordenanza-de-transito/', type: 'Normativa vial' },
-  { title: 'Consejo del FONACIDE', href: 'https://www.luque.gov.py/fonacide/', type: 'Transparencia y Fondos' },
+  { title: 'Consejo del FONACIDE', href: 'https://www.luque.gov.py/consejo-de-fonacide/', type: 'Transparencia y Fondos' },
   { title: 'Presupuesto General', href: 'https://www.luque.gov.py/presupuesto-general/', type: 'Finanzas públicas' },
+  { title: 'Denuncias O Consultas', href: 'https://www.luque.gov.py/formulario-transparencia/', type: 'Transparencia y Ciudadanía' },
+  { title: 'Normativas Legales Vigentes', href: 'https://www.luque.gov.py/normativas-legales-vigentes/', type: 'Marco legal municipal' },
+  { title: 'PATIP - Matriz de Seguimiento', href: 'https://www.luque.gov.py/matriz-de-seguimiento-cumplimiento-del-patip/', type: 'Plan Anual de Transparencia' },
+  { title: 'Ley 5189/14 - Salarios de Funcionarios', href: 'https://www.luque.gov.py/salarios-de-funcionarios/', type: 'Nómina y Remuneraciones' },
+  { title: 'Ley 5282/14 - Libre Acceso a la Información', href: 'https://www.luque.gov.py/ley-5282-14/', type: 'Información Pública' },
+  { title: 'LEY 7089/23 - Conflicto de Intereses', href: 'https://www.luque.gov.py/ley-7089-2023/', type: 'Régimen de integridad' },
 ];
 
 export default function SearchModal({ isOpen, onClose, onSelectService }) {
