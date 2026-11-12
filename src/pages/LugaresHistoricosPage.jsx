@@ -159,31 +159,6 @@ export default function LugaresHistoricosPage({ onBackToHome }) {
         'Iluminación colonial nocturna y paseos culturales guiados',
       ],
     },
-    {
-      id: 'cerro-koi',
-      name: 'Monumento Natural Cerro Kõi',
-      category: 'Naturaleza y Geología',
-      isOfficial: false,
-      officialBadge: 'Patrimonio Natural Protegido',
-      year: 'Área Protegida por Ley 179/93',
-      image: '/conmebol-luque.jpg',
-      fallbackImage: '/farias.jpg',
-      location: 'Camino Luque - Areguá (a 5 km del centro de Luque)',
-      schedule: 'Martes a domingos de 08:00 a 17:00 hs (Guardaparques)',
-      googleMapsUrl: 'https://goo.gl/maps/xD41z2PeWaN2eb8N6',
-      mapEmbedUrl:
-        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14432.427298528251!2d-57.50890016555788!3d-25.266991672247233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945daf897855715d%3A0x645129eb85827454!2sSantuario%20Virgen%20del%20Rosario%2C%20Luque!5e0!3m2!1ses!2spy!4v1652834176976!5m2!1ses!2spy',
-      paragraphs: [
-        'Rareza geológica de fama mundial declarada Patrimonio Natural. Presenta formaciones de areniscas columnares octogonales semejantes a lápices gigantes verticales, un fenómeno volcánico y sedimentario único en Sudamérica (solo repetido en Sudáfrica).',
-        'Cuenta con miradores ecológicos hacia la cuenca del lago Ypacaraí y un centro de interpretación ambiental con guardaparques certificados.',
-      ],
-      highlights: [
-        'Areniscas columnares geométricas octogonales únicas en América del Sur',
-        'Mirador panorámico al lago Ypacaraí y a la cordillera de los Altos',
-        'Senderos ecológicos interpretativos y visitas educativas guiadas',
-        'Monumento natural bajo régimen especial de conservación ambiental',
-      ],
-    },
   ];
 
   const categories = [
@@ -194,7 +169,6 @@ export default function LugaresHistoricosPage({ onBackToHome }) {
     'Monumentos Cívicos',
     'Tradición Popular',
     'Arquitectura Civil',
-    'Naturaleza y Geología',
   ];
 
   const filteredPlaces = places.filter((p) => {
