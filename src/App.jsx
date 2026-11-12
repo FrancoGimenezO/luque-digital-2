@@ -71,6 +71,8 @@ export default function App() {
         '#concejales',
         '#concejales-municipales',
         '#directores',
+        '#directores-municipales',
+        '#gabinete',
         '#denuncias-consultas',
         '#ordenanzas-municipales',
         '#resoluciones-municipales',
@@ -175,6 +177,8 @@ export default function App() {
       case '#concejales-municipales':
         return <GobiernoPage defaultTab="junta" onBackToHome={navigateToHome} />;
       case '#directores':
+      case '#directores-municipales':
+      case '#gabinete':
         return <GobiernoPage defaultTab="directores" onBackToHome={navigateToHome} />;
 
       // Menú TRANSPARENCIA

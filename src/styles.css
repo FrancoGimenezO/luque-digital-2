@@ -4332,62 +4332,162 @@ button {
 
 .directores-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.75rem;
 }
 
-.director-card {
+.director-detail-card {
   background: #ffffff;
-  padding: 1.6rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-card);
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 14px rgba(11, 34, 101, 0.05);
   display: flex;
   flex-direction: column;
-  transition: var(--transition);
+  padding: 1.6rem;
+  transition: all 0.28s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.director-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--primary-blue);
-  box-shadow: var(--shadow-hover);
+.director-detail-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-yellow) 100%);
+  opacity: 0.85;
 }
 
-.director-card-top {
+.director-detail-card:hover {
+  transform: translateY(-4px);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 28px rgba(11, 34, 101, 0.12);
+}
+
+.director-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.director-photo-wrap {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #0b2265;
+  border: 3px solid #f5a623;
+  box-shadow: 0 4px 10px rgba(11, 34, 101, 0.15);
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  justify-content: center;
 }
 
-.dir-icon {
-  color: var(--primary-blue);
+.director-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
-.dir-area-badge {
+.director-detail-card:hover .director-photo-img {
+  transform: scale(1.05);
+}
+
+.director-photo-wrap.photo-fallback {
+  background: linear-gradient(135deg, #0b2265 0%, #1e3a8a 100%);
+  position: relative;
+}
+
+.director-photo-wrap.photo-fallback::after {
+  content: '👤';
+  font-size: 2.2rem;
+}
+
+.director-area-tag {
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--accent-yellow);
+  color: var(--primary-blue);
+  background: #eff6ff;
+  border: 1px solid rgba(11, 34, 101, 0.12);
+  border-radius: 20px;
+  padding: 0.35rem 0.75rem;
   text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: right;
+  line-height: 1.2;
 }
 
-.director-card h3 {
+.director-card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.director-card-body h3 {
   font-family: var(--font-heading);
   font-size: 1.15rem;
+  font-weight: 700;
   color: var(--primary-blue);
-  margin-bottom: 0.35rem;
+  margin: 0 0 0.4rem 0;
+  line-height: 1.3;
 }
 
-.dir-head-name {
-  font-size: 0.9rem;
-  color: #333333;
-  margin-bottom: 0.6rem;
+.director-cargo-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #b45309;
+  background: rgba(245, 166, 35, 0.12);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  border-radius: 6px;
+  padding: 0.3rem 0.65rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.3;
 }
 
-.dir-functions {
-  font-size: 0.85rem;
-  color: #666666;
+.director-functions-text {
+  font-size: 0.86rem;
+  color: #4b5563;
   line-height: 1.55;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.director-card-footer {
+  margin-top: 1.1rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.director-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.director-contact-btn:hover {
+  color: #b45309;
+  background: rgba(245, 166, 35, 0.1);
+  transform: translateX(2px);
 }
 
 /* ==========================================================================
