@@ -3078,6 +3078,340 @@ button {
   margin-bottom: 1rem;
 }
 
+/* Badge de Número Oficial del Barrio */
+.barrio-official-num-pill {
+  display: inline-block;
+  background: var(--primary-blue);
+  color: var(--accent-yellow);
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.5px;
+}
+
+.barrio-footer-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.barrio-map-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #f0f4f9;
+  color: var(--primary-blue);
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: var(--transition);
+  border: 1px solid #d0ddec;
+}
+
+.barrio-map-link-btn:hover {
+  background: var(--primary-blue);
+  color: #ffffff;
+  border-color: var(--primary-blue);
+}
+
+/* Efecto de foco cuando se hace clic desde la tabla */
+.barrio-highlight-pulse {
+  animation: barrioPulse 1.8s ease;
+  border-color: var(--accent-yellow) !important;
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.4) !important;
+}
+
+@keyframes barrioPulse {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Layout Split: Tabla Oficial y Mapa */
+.barrios-layout-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+}
+
+@media (max-width: 992px) {
+  .barrios-layout-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.barrios-table-card,
+.barrios-map-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.barrios-table-header,
+.barrios-map-header {
+  padding: 1.25rem 1.5rem;
+  background: #ffffff;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.barrios-table-header h3,
+.barrios-map-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--primary-blue);
+  margin-top: 0.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.barrios-table-header p {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.barrios-table-eyebrow,
+.barrios-map-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--primary-blue);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.btn-expand-map {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #f0f4f9;
+  color: var(--primary-blue);
+  border: 1px solid #cbd5e1;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-expand-map:hover {
+  background: var(--primary-blue);
+  color: #ffffff;
+  border-color: var(--primary-blue);
+}
+
+.barrios-table-scroll-container {
+  overflow-x: auto;
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+.barrios-wikitable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.barrios-wikitable thead th {
+  background: var(--primary-blue);
+  color: #ffffff;
+  padding: 0.65rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.barrios-wikitable tbody tr {
+  border-bottom: 1px solid #eef2f6;
+  transition: background 0.15s ease;
+}
+
+.barrios-wikitable tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.barrios-wikitable tbody tr:hover {
+  background: #f0f7ff;
+}
+
+.barrios-wikitable td {
+  padding: 0.5rem 0.75rem;
+}
+
+.td-num {
+  text-align: center;
+  color: var(--primary-blue);
+  font-weight: 800;
+  background: rgba(11, 34, 101, 0.04);
+}
+
+.td-name {
+  color: #334155;
+  font-weight: 500;
+}
+
+.table-barrio-link {
+  background: none;
+  border: none;
+  color: #1e293b;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.table-barrio-link:hover {
+  color: var(--primary-blue);
+  text-decoration: underline;
+}
+
+/* Marco del Mapa Territorial */
+.barrios-map-img-frame {
+  position: relative;
+  background: #f1f5f9;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+}
+
+.barrios-map-image {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.barrios-map-img-frame:hover .barrios-map-image {
+  transform: scale(1.02);
+}
+
+.barrios-map-overlay-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(11, 34, 101, 0.85);
+  color: #ffffff;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+/* Modal de Mapa Pantalla Completa */
+.barrio-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: fadeIn 0.25s ease;
+}
+
+.barrio-modal-content {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  max-width: 1100px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.barrio-modal-header {
+  padding: 1rem 1.5rem;
+  background: var(--primary-blue);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.barrio-modal-header h4 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+.barrio-modal-close-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.barrio-modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.barrio-modal-body {
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+}
+
+.barrio-modal-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.barrio-modal-footer {
+  padding: 0.85rem 1.5rem;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
 /* ==========================================================================
    4. PÁGINA RECREACIÓN Y ESPACIOS PÚBLICOS
    ========================================================================== */
