@@ -2208,6 +2208,165 @@ button {
   font-weight: 600;
 }
 
+/* Capítulos Históricos con Fotos Originales */
+.history-chapters-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.history-chapter-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.history-chapter-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-blue);
+}
+
+.history-chapter-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  align-items: stretch;
+}
+
+.history-chapter-grid.reverse {
+  grid-template-columns: 1fr 420px;
+}
+
+.history-chapter-grid.reverse .history-chapter-image-col {
+  order: 2;
+}
+
+.history-chapter-grid.reverse .history-chapter-text-col {
+  order: 1;
+}
+
+.history-chapter-image-col {
+  position: relative;
+  background: #071946;
+  min-height: 340px;
+  overflow: hidden;
+}
+
+.hist-img-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hist-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  display: block;
+}
+
+.history-chapter-card:hover .hist-img-frame img {
+  transform: scale(1.05);
+}
+
+.hist-img-tag {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: rgba(7, 25, 70, 0.85);
+  color: var(--accent-yellow);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(245, 166, 35, 0.4);
+  letter-spacing: 0.5px;
+}
+
+.history-chapter-text-col {
+  padding: 2.5rem 2.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chapter-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--accent-yellow-subtle);
+  color: #8c5b05;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 0.6rem;
+  border: 1px solid rgba(245, 166, 35, 0.3);
+}
+
+.history-chapter-text-col h3 {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  color: var(--primary-blue);
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+}
+
+.chapter-prose p {
+  font-size: 0.96rem;
+  color: #444444;
+  line-height: 1.7;
+  margin-bottom: 0.95rem;
+}
+
+.chapter-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.chapter-prose strong {
+  color: var(--primary-blue);
+}
+
+.timeline-year-tag {
+  display: inline-block;
+  background: #edf2fc;
+  color: var(--primary-blue);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 960px) {
+  .history-chapter-grid,
+  .history-chapter-grid.reverse {
+    grid-template-columns: 1fr;
+  }
+  .history-chapter-grid.reverse .history-chapter-image-col {
+    order: 0;
+  }
+  .history-chapter-grid.reverse .history-chapter-text-col {
+    order: 1;
+  }
+  .history-chapter-image-col {
+    height: 260px;
+    min-height: 260px;
+  }
+  .history-chapter-text-col {
+    padding: 1.8rem;
+  }
+  .history-chapter-text-col h3 {
+    font-size: 1.35rem;
+  }
+}
+
 /* Timeline */
 .history-timeline-section {
   margin-bottom: 4rem;
