@@ -28,7 +28,7 @@ export default function RecreacionPage({ onBackToHome }) {
     {
       id: 'nu-guasu',
       name: 'Parque Ñu Guasu',
-      type: 'Parque Metropolitano',
+      type: 'Parque Ecológico y Deportivo',
       category: 'Parques y Naturaleza',
       image: '/Parque Ñu guazu.jfif',
       fallbackImage: '/conmebol-luque.jpg',
@@ -40,37 +40,13 @@ export default function RecreacionPage({ onBackToHome }) {
       mapEmbedUrl:
         'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.3875323945415!2d-57.53424168498877!3d-25.27438138386008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da79d0f507b9f%3A0xe54d8ec6fe9b50b7!2sParque%20%C3%91u%20Guasu!5e0!3m2!1ses!2spy!4v1652835000000!5m2!1ses!2spy',
       description:
-        'El principal pulmón verde metropolitano del Paraguay. Cuenta con dos extensas lagunas artificiales con peces y aves silvestres, circuito de caminata de 5 km, ciclovías pavimentadas exclusivas, gimnasios biosaludables al aire libre y canchas de fútbol, vóley y tenis.',
+        'El principal pulmón verde y deportivo de Luque. Cuenta con dos extensas lagunas con peces y aves silvestres, circuito de caminata de 5 km, ciclovías pavimentadas exclusivas, gimnasios biosaludables al aire libre y canchas de fútbol, vóley y tenis.',
       facilities: [
         'Circuito aeróbico peatonal de 5 km señalizado',
         'Ciclovía segregada exclusiva para bicicletas y patines',
         'Lagunas con pasarelas de madera y miradores de fauna',
         'Canchas reglamentarias de tenis, básquet y fútbol',
         'Estacionamiento vigilado y puestos de primeros auxilios',
-      ],
-    },
-    {
-      id: 'parque-guasu',
-      name: 'Parque Guasu Metropolitano',
-      type: 'Reserva y Senderismo Ecológico',
-      category: 'Parques y Naturaleza',
-      image: '/Parque Ñu guazu.jfif',
-      fallbackImage: '/conmebol-luque.jpg',
-      extension: '125 hectáreas de conservación silvestre',
-      location: 'Avda. Madame Lynch y Autopista Ñu Guasu',
-      hours: 'Lunes a Domingo de 05:30 a 20:00 hs',
-      cost: 'Entrada Libre y Gratuita',
-      googleMapsUrl: 'https://maps.google.com/?q=Parque+Guasu+Metropolitano',
-      mapEmbedUrl:
-        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.614605948956!2d-57.54593458498894!3d-25.26681098386377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da7bcbf587b1d%3A0xb2146ff9eb322230!2sParque%20Guasu%20Metropolitano!5e0!3m2!1ses!2spy!4v1652835100000!5m2!1ses!2spy',
-      description:
-        'Área silvestre protegida con densos bosques nativos, humedales y senderos naturales. Ideal para observadores de aves, entrenamiento de fondo, ciclismo de montaña (MTB) y paseos familiares al aire libre.',
-      facilities: [
-        'Senderos de tierra apisonada para cross-country y running',
-        'Áreas de avistamiento de aves autóctonas y fauna silvestre',
-        'Pistas amplias para patinaje recreativo y rollers',
-        'Áreas de picnic a la sombra de especies arbóreas nativas',
-        'Bebederos y seguridad permanente',
       ],
     },
     {
@@ -205,8 +181,8 @@ export default function RecreacionPage({ onBackToHome }) {
             <div className="recreation-quick-box">
               <TreePine size={24} />
               <div>
-                <b>+275 Hectáreas Verdes</b>
-                <span>Parque Ñu Guasu y Parque Guasu</span>
+                <b>+150 Hectáreas Verdes</b>
+                <span>Parque Ñu Guasu</span>
               </div>
             </div>
             <div className="recreation-quick-box">
@@ -230,10 +206,6 @@ export default function RecreacionPage({ onBackToHome }) {
             <a href="#nu-guasu" className="quick-jump-place-pill">
               <TreePine size={15} />
               <span>Parque Ñu Guasu</span>
-            </a>
-            <a href="#parque-guasu" className="quick-jump-place-pill">
-              <Compass size={15} />
-              <span>Parque Guasu</span>
             </a>
             <a href="#ciclovia-luque" className="quick-jump-place-pill">
               <Bike size={15} />
