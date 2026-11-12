@@ -14,11 +14,15 @@ import {
   DollarSign,
   Scale,
   Send,
+  Users,
+  Eye,
+  FileCheck,
 } from 'lucide-react';
 
 export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToHome }) {
   const [activeTab, setActiveTab] = useState(defaultTab);
   const [docSearch, setDocSearch] = useState('');
+  const [ordCategory, setOrdCategory] = useState('Todas');
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [complaintForm, setComplaintForm] = useState({
     nombre: '',
@@ -30,49 +34,263 @@ export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToH
     detalle: '',
   });
 
+  // Las 16 Ordenanzas Oficiales de la Municipalidad de Luque extraídas del portal institucional
   const ordenanzas = [
     {
-      numero: 'Ordenanza N° 05/2024',
-      titulo: 'Reglamento General de Tránsito y Seguridad Vial',
-      categoria: 'Tránsito y Transporte',
-      fecha: '2024',
-      descripcion: 'Actualización integral de normas viales, estacionamiento tarifado, límites de velocidad y sanciones en el ejido urbano de Luque.',
-    },
-    {
-      numero: 'Ordenanza N° 01/2024',
-      titulo: 'Ordenanza General Tributaria y Tarifario de Tasas',
-      categoria: 'Tributaria y Finanzas',
-      fecha: '2024',
-      descripcion: 'Fijación de alícuotas para el impuesto inmobiliario, patentes comerciales, tasas de recolección y conservación de pavimentos.',
-    },
-    {
-      numero: 'Ordenanza N° 18/2023',
+      id: 'ord-09-2025',
+      numero: 'Ordenanza Municipal Nº 09/2025',
+      numeroCorto: '09/2025',
       titulo: 'Plan de Ordenamiento Urbano y Territorial (POUT)',
-      categoria: 'Obras y Urbanismo',
-      fecha: '2023',
-      descripcion: 'Delimitación de zonas residenciales, comerciales e industriales, coeficientes de edificación y protección de áreas verdes.',
+      tituloCompleto: 'POR LA CUAL SE ESTABLECE EL PLAN DE ORDENAMIENTO URBANO Y TERRITORIAL DEL MUNICIPIO DE LUQUE',
+      categoria: 'Planificación Urbana y Obras',
+      anio: '2025',
+      fileUrl: '/ordenanzas/ordenanza-09-2025-pout.pdf',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/ORD-09.2025-POUT.pdf',
+      fileType: 'PDF Oficial',
+      fileSize: '42.4 MB',
+      descripcion: 'Establece las directrices y normativas del Plan de Ordenamiento Urbano y Territorial (POUT) de Luque, zonificación urbana, coeficientes de edificabilidad y protección de áreas verdes.',
     },
     {
-      numero: 'Ordenanza N° 12/2023',
-      titulo: 'Reglamentación de Gestión Integral de Residuos Sólidos Urbanos',
+      id: 'ord-05-2024',
+      numero: 'Ordenanza Municipal Nº 05/2024',
+      numeroCorto: '05/2024',
+      titulo: 'Reglamento General de Tránsito de la Ciudad de Luque',
+      tituloCompleto: 'LA CUAL APRUEBA EL REGLAMENTO GENERAL DE TRANSITO DE LA CIUDAD DE LUQUE',
+      categoria: 'Tránsito y Transporte',
+      anio: '2024',
+      fileUrl: '/ordenanzas/ordenanza-05-2024-reglamento-transito.pdf',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2026/03/ORDENANZA-MUNICIPAL-N%C2%B0-5-2024.pdf',
+      fileType: 'PDF Oficial',
+      fileSize: '394 KB',
+      descripcion: 'Aprueba el reglamento general de tránsito de la ciudad de Luque: circulación vial, señalización, estacionamiento medido, sentido de calles y régimen de sanciones.',
+    },
+    {
+      id: 'ord-06-2024',
+      numero: 'Ordenanza Municipal Nº 06/2024',
+      numeroCorto: '06/2024',
+      titulo: 'Reglamentación de Comisiones Vecinales',
+      tituloCompleto: 'POR LA CUAL SE REGLAMENTA LA CONSTITUCIÓN, FUNCIONAMIENTO Y DURACIÓN DE LAS COMISIONES VECINALES DENTRO DEL MUNICIPIO DE LUQUE',
+      categoria: 'Participación Ciudadana',
+      anio: '2024',
+      fileUrl: '/ordenanzas/ordenanza-06-2024-comisiones-vecinales.pdf',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/ordenanza-06_2024.pdf',
+      fileType: 'PDF Oficial',
+      fileSize: '8.5 MB',
+      descripcion: 'Reglamenta los requisitos para la asamblea constitutiva, funcionamiento democrático, personería municipal, duración de mandatos y rendición de cuentas de las comisiones vecinales barriales.',
+    },
+    {
+      id: 'ord-11-2023',
+      numero: 'Ordenanza Municipal Nº 11/2023',
+      numeroCorto: '11/2023',
+      titulo: 'Plantación y Gestión de Árboles en Veredas',
+      tituloCompleto: 'QUE REGLAMENTA LA PLANTACIÓN Y GESTIÓN DE ÁRBOLES EN VEREDAS',
       categoria: 'Medio Ambiente',
-      fecha: '2023',
-      descripcion: 'Normas para la recolección diferenciada, prohibición de quema de basuras y sanciones a vertederos clandestinos en Luque.',
+      anio: '2023',
+      fileUrl: '/ordenanzas/ordenanza-11-2023-arbolado-veredas.pdf',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/Ordenanza-11-2023-Arbolado-en-Veredas.pdf',
+      fileType: 'PDF Oficial',
+      fileSize: '1.8 MB',
+      descripcion: 'Normativa ambiental que regula las especies nativas aptas para veredas, distancias mínimas a cordones e infraestructura eléctrica, prohibición de especies destructivas y régimen sancionatorio.',
     },
     {
-      numero: 'Ordenanza N° 08/2022',
-      titulo: 'Protección y Salvaguarda del Patrimonio Histórico y Cultural',
-      categoria: 'Cultura y Patrimonio',
-      fecha: '2022',
-      descripcion: 'Declaración de sitios históricos protegidos, casonas coloniales y fomento a la artesanía de filigrana y luthería.',
+      id: 'ord-21-2022',
+      numero: 'Ordenanza Municipal Nº 21/2022',
+      numeroCorto: '21/2022',
+      titulo: 'Tarifas de Recolección y Disposición Final de Residuos Sólidos',
+      tituloCompleto: 'SOBRE REAJUSTE DE TARIFAS POR EL SERVICIO DE RECOLECCIÓN DE TRANSPORTE Y DISPOSICIÓN FINAL DE RESIDUOS SÓLIDOS URBANOS EN LA CIUDAD DE LUQUE',
+      categoria: 'Servicios Urbanos',
+      anio: '2022',
+      fileUrl: '/ordenanzas/ordenanza-21-2022-residuos-solidos.pdf',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/ORDENANZA-21-2022-PG1-1.pdf',
+      fileType: 'PDF Oficial',
+      fileSize: '1.2 MB',
+      descripcion: 'Actualiza el esquema tarifario municipal por el servicio de recolección de residuos domiciliarios y comerciales, transporte y tratamiento en disposición final.',
+    },
+    {
+      id: 'ord-11-2022',
+      numero: 'Ordenanza Municipal Nº 11/2022',
+      numeroCorto: '11/2022',
+      titulo: 'Regulación de Ruidos Molestos y Vibraciones',
+      tituloCompleto: 'POR LA CUAL SE REGULA LA EMISIÓN DE RUIDOS MOLESTOS Y VIBRACIONES EN LA CIUDAD DE LUQUE',
+      categoria: 'Medio Ambiente',
+      anio: '2022',
+      fileUrl: '/ordenanzas/ordenanza-11-2022-ruidos-molestos.pdf',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/Ordenanza-11-2022-pg1.pdf',
+      fileType: 'PDF Oficial',
+      fileSize: '1.5 MB',
+      descripcion: 'Fija los decibeles máximos permitidos en zonas residenciales, mixtas e industriales, control acústico nocturno y régimen de sanciones por polución sonora.',
+    },
+    {
+      id: 'ord-14-2017',
+      numero: 'Ordenanza Municipal Nº 14/2017',
+      numeroCorto: '14/2017',
+      titulo: 'Sumario Administrativo por Quema Irregular de Basura',
+      tituloCompleto: 'POR LA CUAL SE REGLAMENTA EL SUMARIO ADMINISTRATIVO POR QUEMA IRREGULAR DE TODO TIPO DE BASURA',
+      categoria: 'Medio Ambiente',
+      anio: '2017',
+      fileUrl: '/ordenanzas/ordenanza-14-2017-quema-basura.pdf',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/Ord.-14-17-Quema-de-basura.pdf',
+      fileType: 'PDF Oficial',
+      fileSize: '893 KB',
+      descripcion: 'Establece el procedimiento sumarial ante el Juzgado de Faltas y fuertes sanciones económicas contra personas y comercios que quemen basura a cielo abierto.',
+    },
+    {
+      id: 'ord-03-2017',
+      numero: 'Ordenanza Municipal Nº 03/2017',
+      numeroCorto: '03/2017',
+      titulo: 'Modificación del Art. 10 de la Ordenanza 15/2013 (Combustibles)',
+      tituloCompleto: 'MODIFICACIÓN PARCIAL Y AMPLIACIÓN DEL ART. 10 DE LA ORDENANZA 15/2013',
+      categoria: 'Comercio y Seguridad',
+      anio: '2017',
+      fileUrl: '/ordenanzas/ordenanza-03-2017-modificacion-combustibles.jpeg',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/WhatsApp-Image-2024-10-18-at-9.57.23-AM.jpeg',
+      fileType: 'Escaneo Oficial (JPG)',
+      fileSize: '299 KB',
+      descripcion: 'Modifica y amplía las distancias y condiciones técnicas de seguridad requeridas para la habilitación de nuevas estaciones de servicios y expendio de combustibles.',
+    },
+    {
+      id: 'ord-20-2016',
+      numero: 'Ordenanza Municipal Nº 20/2016',
+      numeroCorto: '20/2016',
+      titulo: 'Protección del Arbolado y Prohibición de Tala sin Permiso',
+      tituloCompleto: 'PROTECCIÓN DEL ARBOLADO DEL MUNICIPIO DE LUQUE',
+      categoria: 'Medio Ambiente',
+      anio: '2016',
+      fileUrl: '/ordenanzas/ordenanza-20-2016-proteccion-arbolado.pdf',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/Ordenenza-20-2016-Tala-y-Poda-sin-permiso.pdf',
+      fileType: 'PDF Oficial',
+      fileSize: '2.5 MB',
+      descripcion: 'Protege el patrimonio arbóreo del municipio de Luque, prohibiendo la tala, poda severa o eliminación de árboles en áreas públicas o privadas sin autorización previa.',
+    },
+    {
+      id: 'ord-13-2016',
+      numero: 'Ordenanza Municipal Nº 13/2016',
+      numeroCorto: '13/2016',
+      titulo: 'Regulación de Descargas de Efluentes Líquidos a Cursos Hídricos',
+      tituloCompleto: 'REGULACIÓN DE CONTAMINANTES ATRIBUIDOS A LAS DESCARGAS DE RESIDUOS LÍQUIDOS A CUERPOS DE AGUA SUPERFICIALES, RED DE ALCANTARILLADO E INFILTRACIÓN DE TERRENO',
+      categoria: 'Medio Ambiente',
+      anio: '2016',
+      fileUrl: '/ordenanzas/ordenanza-13-2016-residuos-liquidos-aguas.pdf',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/ORDENANZA-13-16-PG1.pdf',
+      fileType: 'PDF Oficial',
+      fileSize: '1.6 MB',
+      descripcion: 'Control de parámetros fisicoquímicos y prohibición de descarga de contaminantes a arroyos, cuencas hídricas del municipio, alcantarillado sanitario e infiltración.',
+    },
+    {
+      id: 'ord-52-2014',
+      numero: 'Ordenanza Municipal N° 52/2014',
+      numeroCorto: '52/2014',
+      titulo: 'Sistema de Prevención y Atención de Emergencias y Desastres',
+      tituloCompleto: 'SISTEMA DE PREVENCIÓN Y ATENCIÓN DE EMERGENCIAS Y DESASTRES DE LA CIUDAD DE LUQUE',
+      categoria: 'Gestión de Riesgos',
+      anio: '2014',
+      fileUrl: '/ordenanzas/ordenanza-52-2014-sistema-emergencias.pdf',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/ORDENANZA-52-20014-SISTEMA-DE-PREVENSION-EMERGENCIA.pdf',
+      fileType: 'PDF Oficial',
+      fileSize: '746 KB',
+      descripcion: 'Marco institucional de contingencia, comités de emergencia barriales y coordinación comunal con Bomberos Voluntarios y Cruz Roja ante desastres naturales.',
+    },
+    {
+      id: 'ord-28-2013',
+      numero: 'Ordenanza Municipal Nº 28/2013',
+      numeroCorto: '28/2013',
+      titulo: 'Desinfección Obligatoria de Comercios, Industrias y Transporte',
+      tituloCompleto: 'SOBRE DESINFECCIÓN DE LOCALES COMERCIALES, INDUSTRIALES, PROFESIONALES, VEHICULOS DE SERVICIO DE TRANSPORTE PÚBLICO DE PASAJEROS Y LOCALES DE ESPECTACULOS PÚBLICOS',
+      categoria: 'Salubridad e Higiene',
+      anio: '2013',
+      fileUrl: '/ordenanzas/ordenanza-28-2013-desinfeccion-locales.jpg',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/a316f8e5-0e27-45b0-a0a9-5a2a00b367b0.jpg',
+      fileType: 'Escaneo Oficial (JPG)',
+      fileSize: '320 KB',
+      descripcion: 'Obligatoriedad de desinfección, fumigación y desratización periódica en locales comerciales, colectivos del transporte público y sitios de concurrencia masiva.',
+    },
+    {
+      id: 'ord-20-2013',
+      numero: 'Ordenanza Municipal Nº 20/2013',
+      numeroCorto: '20/2013',
+      titulo: 'Regulación del Funcionamiento de Gomerías en Luque',
+      tituloCompleto: 'FUNCIONAMIENTO DE LAS GOMERIAS EN LA CIUDAD DE LUQUE',
+      categoria: 'Comercio y Seguridad',
+      anio: '2013',
+      fileUrl: '/ordenanzas/ordenanza-20-2013-gomerias.jpg',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/625d77e3-f5ea-4c29-b915-7e007dea9d28.jpg',
+      fileType: 'Escaneo Oficial (JPG)',
+      fileSize: '307 KB',
+      descripcion: 'Normas sanitarias de acopio techado de cubiertas en gomerías para prevenir criaderos de vectores del dengue y condiciones de seguridad laboral en talleres.',
+    },
+    {
+      id: 'ord-15-2013',
+      numero: 'Ordenanza Municipal Nº 15/2013',
+      numeroCorto: '15/2013',
+      titulo: 'Implantación y Habilitación de Estaciones de Servicios',
+      tituloCompleto: 'QUE REGLAMENTA LA IMPLANTACIÓN, INSTRALACIÓN Y HABILITACIÓN DE LOS LOCALES DESTINADOS A LA PROVISIÓN,MANIPULEO, ALMACENAMIENTO Y COMERCIALIZACIÓN DE COMBUSTIBLES LÍQUIDOS Y/O GASEOSOS, LUBRICANTES Y ADITIVOS',
+      categoria: 'Comercio y Seguridad',
+      anio: '2013',
+      fileUrl: '/ordenanzas/ordenanza-15-2013-estaciones-combustibles.pdf',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/IMG_5669.pdf',
+      fileType: 'PDF Oficial',
+      fileSize: '3.9 MB',
+      descripcion: 'Reglamenta la localización, almacenamiento, medidas contra incendios y manipuleo de hidrocarburos, lubricantes y gases inflamables.',
+    },
+    {
+      id: 'ord-17-2003',
+      numero: 'Ordenanza Municipal Nº 17/2003',
+      numeroCorto: '17/2003',
+      titulo: 'Concesión y Servicios del Transporte Público de Pasajeros',
+      tituloCompleto: 'POR LA CUAL SE REGLAMENTA LA CONCESIÓN,EXPLOTACIÓN, PRESTACIÓN DE SERVICIOS Y CANCELACIÓN DE ITINERARIOS DEL TRANSPORTE PÚBLICO DE PASAJERPS, EN LA JURISDICCIÓN DE LA CIUDAD DE LUQUE',
+      categoria: 'Tránsito y Transporte',
+      anio: '2003',
+      fileUrl: '/ordenanzas/ordenanza-17-2003-transporte-publico.pdf',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/CamScanner-31-10-2024-11.27.pdf',
+      fileType: 'PDF Oficial',
+      fileSize: '8.8 MB',
+      descripcion: 'Reglamentación del sistema de transporte colectivo de pasajeros dentro de la jurisdicción municipal: itinerarios, pliegos, inspección vehicular y sanciones.',
+    },
+    {
+      id: 'ord-08-1993',
+      numero: 'Ordenanza Municipal Nº 08/93',
+      numeroCorto: '08/93',
+      titulo: 'Reglamento de la Actividad Edilicia de la Ciudad de Luque',
+      tituloCompleto: 'POR LA CUAL SE REGLAMENTA LA ACTIVIDAD EDILICIA DE LA CIUDAD DE LUQUE Y SE ESTABLECE NORMAS TÉCNICAS DE SEGURIDAD, CONFORT, FUNCIONALIDAD Y ESTÉTICA',
+      categoria: 'Planificación Urbana y Obras',
+      anio: '1993',
+      fileUrl: '/ordenanzas/ordenanza-08-1993-actividad-edilicia.pdf',
+      oficialUrl: 'https://www.luque.gov.py/wp-content/uploads/2019/09/1712245612_8_Ord.N8-93pag.1.pdf',
+      fileType: 'PDF Oficial',
+      fileSize: '1.7 MB',
+      descripcion: 'Código edilicio fundacional: normas técnicas de seguridad de estructuras, retiros de fachada, ventilación, prevención contra siniestros y condiciones de habitabilidad.',
     },
   ];
 
+  const categoriasOrdenanzas = [
+    'Todas',
+    'Medio Ambiente',
+    'Tránsito y Transporte',
+    'Planificación Urbana y Obras',
+    'Comercio y Seguridad',
+    'Servicios Urbanos',
+    'Salubridad e Higiene',
+    'Participación Ciudadana',
+    'Gestión de Riesgos',
+  ];
+
   const filteredDocs = useMemo(() => {
-    if (!docSearch.trim()) return ordenanzas;
-    const term = docSearch.toLowerCase();
-    return ordenanzas.filter((o) => (o.numero + ' ' + o.titulo + ' ' + o.categoria + ' ' + o.descripcion).toLowerCase().includes(term));
-  }, [docSearch]);
+    return ordenanzas.filter((o) => {
+      const matchesCategory = ordCategory === 'Todas' || o.categoria === ordCategory;
+      if (!matchesCategory) return false;
+      if (!docSearch.trim()) return true;
+      const term = docSearch.toLowerCase();
+      return (
+        o.numero.toLowerCase().includes(term) ||
+        o.numeroCorto.toLowerCase().includes(term) ||
+        o.titulo.toLowerCase().includes(term) ||
+        o.tituloCompleto.toLowerCase().includes(term) ||
+        o.categoria.toLowerCase().includes(term) ||
+        o.anio.toLowerCase().includes(term) ||
+        o.descripcion.toLowerCase().includes(term)
+      );
+    });
+  }, [docSearch, ordCategory]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -287,65 +505,164 @@ export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToH
               </div>
             )}
 
-            {/* 2. ORDENANZAS MUNICIPALES */}
+            {/* 2. ORDENANZAS MUNICIPALES (16 ORDENANZAS OFICIALES) */}
             {activeTab === 'ordenanzas' && (
               <div className="trans-panel">
                 <div className="section-header-compact">
-                  <span className="eyebrow-accent">MARCO NORMATIVO VIGENTE</span>
+                  <span className="eyebrow-accent">MARCO NORMATIVO VIGENTE · JUNTA MUNICIPAL E INTENDENCIA</span>
                   <h2>Ordenanzas Municipales de la Ciudad de Luque</h2>
-                  <p>Disposiciones dictadas por la Junta Municipal y promulgadas por la Intendencia.</p>
+                  <p>
+                    Compendio oficial digitalizado de ordenanzas sancionadas por la Honorable Junta Municipal y
+                    promulgadas por la Intendencia Municipal de Luque. Disponibles para consulta pública, lectura directa y
+                    descarga libre en cumplimiento de la Ley 5282/2014.
+                  </p>
                 </div>
 
-                <div className="search-field" style={{ marginBottom: '1.5rem' }}>
-                  <Search size={20} className="search-field-icon" />
-                  <input
-                    type="text"
-                    value={docSearch}
-                    onChange={(e) => setDocSearch(e.target.value)}
-                    placeholder="Buscar por número de ordenanza, año o palabra clave..."
-                  />
-                  {docSearch && (
-                    <button className="clear-search-btn" onClick={() => setDocSearch('')}>
-                      ×
-                    </button>
-                  )}
+                {/* Resumen Informativo de Ordenanzas */}
+                <div className="ordenanzas-stats-banner">
+                  <div className="ord-stat-item">
+                    <FileCheck size={22} className="ord-stat-icon" />
+                    <div>
+                      <strong>16 Ordenanzas Digitalizadas</strong>
+                      <span>Disponibles en PDF y alta resolución</span>
+                    </div>
+                  </div>
+                  <div className="ord-stat-item">
+                    <ShieldCheck size={22} className="ord-stat-icon" />
+                    <div>
+                      <strong>Validez Jurídica Oficial</strong>
+                      <span>Documentos con firma y promulgación comunal</span>
+                    </div>
+                  </div>
+                  <div className="ord-stat-item">
+                    <ExternalLink size={22} className="ord-stat-icon" />
+                    <div>
+                      <strong>Acceso Directo y Fuente</strong>
+                      <span>Copias de descarga local y enlace a servidor oficial</span>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="docs-table-wrap">
-                  <table className="docs-table">
-                    <thead>
-                      <tr>
-                        <th>Identificación</th>
-                        <th>Título de la Ordenanza</th>
-                        <th>Materia</th>
-                        <th>Año</th>
-                        <th>Acción</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {filteredDocs.map((ord, idx) => (
-                        <tr key={idx}>
-                          <td><strong>{ord.numero}</strong></td>
-                          <td>
-                            <b>{ord.titulo}</b>
-                            <p className="doc-desc-cell">{ord.descripcion}</p>
-                          </td>
-                          <td><span className="doc-tag">{ord.categoria}</span></td>
-                          <td>{ord.fecha}</td>
-                          <td>
-                            <button
-                              className="btn-download-doc"
-                              onClick={() => alert(`Descargando copia oficial digitalizada de: ${ord.numero}`)}
-                            >
-                              <Download size={14} />
-                              <span>Descargar PDF</span>
-                            </button>
-                          </td>
+                {/* Barra de Búsqueda y Filtros de Categoría */}
+                <div className="barrios-search-filter-wrap" style={{ marginBottom: '1.75rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', width: '100%' }}>
+                    <div className="search-field" style={{ flex: '1 1 320px', maxWidth: '440px' }}>
+                      <Search size={18} className="search-field-icon" />
+                      <input
+                        type="text"
+                        value={docSearch}
+                        onChange={(e) => setDocSearch(e.target.value)}
+                        placeholder="Buscar por n° de ordenanza, año, materia o palabra clave..."
+                        aria-label="Buscar ordenanza municipal"
+                      />
+                      {docSearch && (
+                        <button className="clear-search-btn" onClick={() => setDocSearch('')} aria-label="Limpiar búsqueda">
+                          ×
+                        </button>
+                      )}
+                    </div>
+
+                    <div className="category-filters" role="tablist">
+                      {categoriasOrdenanzas.map((cat) => {
+                        const count = cat === 'Todas' ? ordenanzas.length : ordenanzas.filter((o) => o.categoria === cat).length;
+                        const isActive = ordCategory === cat;
+
+                        return (
+                          <button
+                            key={cat}
+                            className={`cat-pill ${isActive ? 'active' : ''}`}
+                            onClick={() => setOrdCategory(cat)}
+                            role="tab"
+                            aria-selected={isActive}
+                          >
+                            <span>{cat}</span>
+                            <span className="cat-count">{count}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Tabla Oficial de Ordenanzas */}
+                {filteredDocs.length > 0 ? (
+                  <div className="docs-table-wrap">
+                    <table className="docs-table">
+                      <thead>
+                        <tr>
+                          <th style={{ width: '160px' }}>Identificación</th>
+                          <th>Disposición y Resumen Oficial</th>
+                          <th style={{ width: '190px' }}>Materia</th>
+                          <th style={{ width: '90px', textAlign: 'center' }}>Año</th>
+                          <th style={{ width: '180px', textAlign: 'center' }}>Acciones</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                      </thead>
+                      <tbody>
+                        {filteredDocs.map((ord) => (
+                          <tr key={ord.id}>
+                            <td>
+                              <div className="ord-number-badge">{ord.numero}</div>
+                              <span className="ord-type-pill">{ord.fileType}</span>
+                              <span className="ord-size-pill">{ord.fileSize}</span>
+                            </td>
+                            <td>
+                              <b className="ord-title-text">{ord.titulo}</b>
+                              <div className="ord-caption-text">{ord.tituloCompleto}</div>
+                              <p className="doc-desc-cell">{ord.descripcion}</p>
+                            </td>
+                            <td>
+                              <span className="doc-tag">{ord.categoria}</span>
+                            </td>
+                            <td style={{ textAlign: 'center' }}>
+                              <span className="ord-year-badge">{ord.anio}</span>
+                            </td>
+                            <td>
+                              <div className="ord-actions-stack">
+                                <a
+                                  href={ord.fileUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="btn-download-doc"
+                                  title={`Abrir y descargar copia digitalizada de ${ord.numero}`}
+                                >
+                                  <Download size={14} />
+                                  <span>Descargar {ord.fileType.includes('PDF') ? 'PDF' : 'Doc'}</span>
+                                </a>
+                                <a
+                                  href={ord.oficialUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="btn-source-doc"
+                                  title="Ver archivo original en servidor oficial luque.gov.py"
+                                >
+                                  <ExternalLink size={12} />
+                                  <span>Fuente Oficial</span>
+                                </a>
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : (
+                  <div className="no-results-box" style={{ padding: '3rem 1.5rem', textAlign: 'center', background: '#f8fafc', borderRadius: '12px', border: '1px dashed #cbd5e1' }}>
+                    <AlertCircle size={36} style={{ color: '#94a3b8', marginBottom: '0.75rem' }} />
+                    <h3 style={{ color: '#0b2265', marginBottom: '0.5rem' }}>No se encontraron ordenanzas</h3>
+                    <p style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '1.25rem' }}>
+                      No hay resultados que coincidan con <strong>"{docSearch}"</strong> en la categoría seleccionada.
+                    </p>
+                    <button
+                      className="btn btn-navy"
+                      onClick={() => {
+                        setDocSearch('');
+                        setOrdCategory('Todas');
+                      }}
+                    >
+                      Restablecer Filtros
+                    </button>
+                  </div>
+                )}
               </div>
             )}
 
