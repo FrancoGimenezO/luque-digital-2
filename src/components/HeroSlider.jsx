@@ -18,9 +18,9 @@ const slidesData = [
     titleHtml: 'Cuna de la música, <br>el arte y la <br>tradición',
     desc: 'Capital de la orfebrería en filigrana de oro y plata, cuna del arpa paraguaya y tierra de identidad, fe y fervor auriazul.',
     btnMainText: 'Conocer Nuestra Ciudad',
-    btnMainHref: '#ciudad',
+    btnMainHref: '#historia',
     btnSecText: 'Lugares Históricos',
-    btnSecHref: 'https://www.luque.gov.py/lugares-y-edificios-historicos/',
+    btnSecHref: '#lugares-historicos',
   },
   {
     image: '/conmebol-luque.jpg',
@@ -28,9 +28,9 @@ const slidesData = [
     titleHtml: 'Gestión moderna, <br>cercana y <br>transparente',
     desc: 'Optimizamos la atención ciudadana con trámites más ágiles: habilitación de rodados, patentes comerciales y libre acceso a la información pública.',
     btnMainText: 'Gestiones Municipales',
-    btnMainHref: 'https://www.luque.gov.py/gestiones-municipales/',
-    btnSecText: 'Portal MECIP',
-    btnSecHref: '#transparencia',
+    btnMainHref: '#gestiones',
+    btnSecText: 'Portal de Transparencia',
+    btnSecHref: '#ordenanzas-municipales',
   },
 ];
 

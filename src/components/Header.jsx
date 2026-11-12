@@ -79,10 +79,11 @@ export default function Header({ onOpenSearch }) {
           </div>
 
           <a
-            href="https://www.luque.gov.py/direcciones/"
-            target="_blank"
-            rel="noreferrer"
+            href="#directores"
             className="btn-direcciones"
+            onClick={() => {
+              setScheduleOpen(false);
+            }}
           >
             Direcciones ▾
           </a>
@@ -133,7 +134,7 @@ export default function Header({ onOpenSearch }) {
               {/* CIUDAD ▾ */}
               <li className="nav-item has-dropdown">
                 <a
-                  href="https://www.luque.gov.py/"
+                  href="#historia"
                   onClick={(e) => {
                     if (window.innerWidth <= 960) {
                       e.preventDefault();
@@ -145,32 +146,68 @@ export default function Header({ onOpenSearch }) {
                 </a>
                 <ul className={`dropdown ${activeDropdown === 'ciudad' ? 'dropdown-open' : ''}`}>
                   <li>
-                    <a href="https://www.luque.gov.py/historia/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#historia"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Historia
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.luque.gov.py/lugares-y-edificios-historicos/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#lugares-historicos"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Lugares y Edificios Históricos
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.luque.gov.py/barrios/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#barrios"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Barrios
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.luque.gov.py/recreacion-y-espacios-publicos/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#recreacion"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Recreación y Espacios Públicos
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.luque.gov.py/eventos/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#eventos"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Eventos
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.luque.gov.py/mercados-y-ferias/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#mercados-ferias"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Mercados y Ferias
                     </a>
                   </li>
@@ -180,7 +217,7 @@ export default function Header({ onOpenSearch }) {
               {/* GOBIERNO ▾ */}
               <li className="nav-item has-dropdown">
                 <a
-                  href="https://www.luque.gov.py/"
+                  href="#intendente"
                   onClick={(e) => {
                     if (window.innerWidth <= 960) {
                       e.preventDefault();
@@ -192,27 +229,45 @@ export default function Header({ onOpenSearch }) {
                 </a>
                 <ul className={`dropdown ${activeDropdown === 'gobierno' ? 'dropdown-open' : ''}`}>
                   <li>
-                    <a href="https://www.luque.gov.py/intendente-municipal/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#intendente"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Intendente Municipal
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.luque.gov.py/junta-municipal/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#junta-municipal"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Junta Municipal
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.luque.gov.py/directores/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#directores"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Directores
                     </a>
                   </li>
                 </ul>
               </li>
 
-              {/* TRANSPARENCIA ▾ (CON TODOS LOS ÍTEMS Y SUB-MENÚS SOLICITADOS) */}
+              {/* TRANSPARENCIA ▾ */}
               <li className="nav-item has-dropdown">
                 <a
-                  href="https://www.luque.gov.py/transparencia/"
+                  href="#ordenanzas-municipales"
                   onClick={(e) => {
                     if (window.innerWidth <= 960) {
                       e.preventDefault();
@@ -225,42 +280,78 @@ export default function Header({ onOpenSearch }) {
                 <ul className={`dropdown ${activeDropdown === 'transparencia' ? 'dropdown-open' : ''}`}>
                   {/* 1. Denuncias O Consultas */}
                   <li>
-                    <a href="https://www.luque.gov.py/formulario-transparencia/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#denuncias-consultas"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Denuncias O Consultas
                     </a>
                   </li>
 
                   {/* 2. Ordenanzas Municipales */}
                   <li>
-                    <a href="https://www.luque.gov.py/ordenanzas-municipales/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#ordenanzas-municipales"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Ordenanzas Municipales
                     </a>
                   </li>
 
                   {/* 3. Resoluciones Municipales */}
                   <li>
-                    <a href="https://www.luque.gov.py/resoluciones-municipales/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#resoluciones-municipales"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Resoluciones Municipales
                     </a>
                   </li>
 
                   {/* 4. Consejo Del FONACIDE */}
                   <li>
-                    <a href="https://www.luque.gov.py/consejo-de-fonacide/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#fonacide"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Consejo Del FONACIDE
                     </a>
                   </li>
 
                   {/* 5. Normativas Legales Vigentes */}
                   <li>
-                    <a href="https://www.luque.gov.py/normativas-legales-vigentes/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#ordenanzas-municipales"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Normativas Legales Vigentes
                     </a>
                   </li>
 
                   {/* 6. Presupuesto General */}
                   <li>
-                    <a href="https://www.luque.gov.py/presupuesto-general/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#presupuesto-general"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Presupuesto General
                     </a>
                   </li>
@@ -268,13 +359,14 @@ export default function Header({ onOpenSearch }) {
                   {/* 7. PATIP ▸ */}
                   <li className="has-sub-dropdown">
                     <a
-                      href="https://www.luque.gov.py/plan-anual-de-transparencia-e-integridad-publica/"
-                      target="_blank"
-                      rel="noreferrer"
+                      href="#patip"
                       onClick={(e) => {
                         if (window.innerWidth <= 960) {
                           e.preventDefault();
                           toggleSubDropdown('patip');
+                        } else {
+                          setMobileOpen(false);
+                          setActiveDropdown(null);
                         }
                       }}
                     >
@@ -283,12 +375,26 @@ export default function Header({ onOpenSearch }) {
                     </a>
                     <ul className={`sub-dropdown ${activeSubDropdown === 'patip' ? 'sub-dropdown-open' : ''}`}>
                       <li>
-                        <a href="https://www.luque.gov.py/matriz-de-seguimiento-cumplimiento-del-patip/" target="_blank" rel="noreferrer">
+                        <a
+                          href="#patip"
+                          onClick={() => {
+                            setMobileOpen(false);
+                            setActiveDropdown(null);
+                            setActiveSubDropdown(null);
+                          }}
+                        >
                           Matriz de Seguimiento Cumplimiento
                         </a>
                       </li>
                       <li>
-                        <a href="https://www.luque.gov.py/plan-anual-de-transparencia-e-integridad-publica/" target="_blank" rel="noreferrer">
+                        <a
+                          href="#patip"
+                          onClick={() => {
+                            setMobileOpen(false);
+                            setActiveDropdown(null);
+                            setActiveSubDropdown(null);
+                          }}
+                        >
                           Plan Anual de Transparencia (PATIP)
                         </a>
                       </li>
@@ -298,13 +404,14 @@ export default function Header({ onOpenSearch }) {
                   {/* 8. Ley 5189/14 ▸ */}
                   <li className="has-sub-dropdown">
                     <a
-                      href="https://www.luque.gov.py/ley-5189-2014/"
-                      target="_blank"
-                      rel="noreferrer"
+                      href="#ley-5189"
                       onClick={(e) => {
                         if (window.innerWidth <= 960) {
                           e.preventDefault();
                           toggleSubDropdown('ley5189');
+                        } else {
+                          setMobileOpen(false);
+                          setActiveDropdown(null);
                         }
                       }}
                     >
@@ -313,12 +420,26 @@ export default function Header({ onOpenSearch }) {
                     </a>
                     <ul className={`sub-dropdown ${activeSubDropdown === 'ley5189' ? 'sub-dropdown-open' : ''}`}>
                       <li>
-                        <a href="https://www.luque.gov.py/salarios-de-funcionarios/" target="_blank" rel="noreferrer">
+                        <a
+                          href="#ley-5189"
+                          onClick={() => {
+                            setMobileOpen(false);
+                            setActiveDropdown(null);
+                            setActiveSubDropdown(null);
+                          }}
+                        >
                           Salarios de Funcionarios Ley 5189/14
                         </a>
                       </li>
                       <li>
-                        <a href="https://www.luque.gov.py/ley-5189-2014/" target="_blank" rel="noreferrer">
+                        <a
+                          href="#ley-5189"
+                          onClick={() => {
+                            setMobileOpen(false);
+                            setActiveDropdown(null);
+                            setActiveSubDropdown(null);
+                          }}
+                        >
                           Estructura y Remuneraciones
                         </a>
                       </li>
@@ -327,7 +448,13 @@ export default function Header({ onOpenSearch }) {
 
                   {/* 9. Ley 5282/14 */}
                   <li>
-                    <a href="https://www.luque.gov.py/ley-5282-14/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#ley-5282"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Ley 5282/14
                     </a>
                   </li>
@@ -335,13 +462,14 @@ export default function Header({ onOpenSearch }) {
                   {/* 10. LEY 7089/23 ▸ */}
                   <li className="has-sub-dropdown">
                     <a
-                      href="https://www.luque.gov.py/ley-7089-2023/"
-                      target="_blank"
-                      rel="noreferrer"
+                      href="#ley-7089"
                       onClick={(e) => {
                         if (window.innerWidth <= 960) {
                           e.preventDefault();
                           toggleSubDropdown('ley7089');
+                        } else {
+                          setMobileOpen(false);
+                          setActiveDropdown(null);
                         }
                       }}
                     >
@@ -351,24 +479,25 @@ export default function Header({ onOpenSearch }) {
                     <ul className={`sub-dropdown ${activeSubDropdown === 'ley7089' ? 'sub-dropdown-open' : ''}`}>
                       <li>
                         <a
-                          href="https://www.luque.gov.py/wp-content/uploads/2026/03/ALTAS-Y-BAJAS-2025-RESOLUCIONES-LEY-7089-2023.pdf"
-                          target="_blank"
-                          rel="noreferrer"
+                          href="#ley-7089"
+                          onClick={() => {
+                            setMobileOpen(false);
+                            setActiveDropdown(null);
+                            setActiveSubDropdown(null);
+                          }}
                         >
-                          Altas y Bajas – Resoluciones 2025 Ley 7089/23
+                          Altas y Bajas – Resoluciones Ley 7089/23
                         </a>
                       </li>
                       <li>
                         <a
-                          href="https://www.luque.gov.py/wp-content/uploads/2026/03/ALTAS-Y-BAJAS-2026-RESOLUCIONES-LEY-7089-23.pdf"
-                          target="_blank"
-                          rel="noreferrer"
+                          href="#ley-7089"
+                          onClick={() => {
+                            setMobileOpen(false);
+                            setActiveDropdown(null);
+                            setActiveSubDropdown(null);
+                          }}
                         >
-                          Altas y Bajas – Resoluciones 2026 Ley 7089/23
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://www.luque.gov.py/ley-7089-2023/" target="_blank" rel="noreferrer">
                           Marco Legal Conflicto de Intereses
                         </a>
                       </li>
@@ -392,17 +521,35 @@ export default function Header({ onOpenSearch }) {
                 </a>
                 <ul className={`dropdown ${activeDropdown === 'gestiones' ? 'dropdown-open' : ''}`}>
                   <li>
-                    <a href="https://www.luque.gov.py/registro-de-conducir/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#gestiones"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Registro de Conducir
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.luque.gov.py/habilitacion-de-vehiculos/" target="_blank" rel="noreferrer">
+                    <a
+                      href="#gestiones"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Habilitación de Vehículos
                     </a>
                   </li>
                   <li>
-                    <a href="#gestiones" onClick={() => setMobileOpen(false)}>
+                    <a
+                      href="#gestiones"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
                       Guía Completa de Trámites
                     </a>
                   </li>
