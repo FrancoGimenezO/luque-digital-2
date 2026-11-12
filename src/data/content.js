@@ -159,9 +159,9 @@ export const news = [
     date: 'Comunidad',
     title: 'Luque se consolida como polo turístico, deportivo y de convenciones',
     summary: 'Con la presencia de la sede de la CONMEBOL y el Aeropuerto Silvio Pettirossi, la ciudad atrae inversiones estratégicas y fomenta el empleo local.',
-    image: '/conmebol-luque.jpg',
+    image: '/Barrios-y-lugares-turisticos-de-LuqueOPC1.jpg',
     readTime: '4 min de lectura',
-    link: 'https://www.luque.gov.py/',
+    link: '#barrios',
   },
 ];
 

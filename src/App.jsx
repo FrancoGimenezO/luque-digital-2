@@ -505,7 +505,7 @@ export default function App() {
                   {news.map((n) => (
                     <article className="news-item-card" key={n.title}>
                       <a
-                        href="#noticias"
+                        href={n.link || '#noticias'}
                         className="news-item-image-wrap"
                         aria-label={`Leer artículo: ${n.title}`}
                       >
@@ -526,7 +526,7 @@ export default function App() {
                         </div>
                         <h3>{n.title}</h3>
                         <p>{n.summary}</p>
-                        <a className="news-read-more" href="#noticias">
+                        <a className="news-read-more" href={n.link || '#noticias'}>
                           <span>Leer comunicado</span>
                           <ChevronRight size={15} />
                         </a>
