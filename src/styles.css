@@ -4121,60 +4121,213 @@ button {
 
 .concejales-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
 }
 
 .concejal-card {
   background: #ffffff;
-  padding: 1.3rem;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-card);
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  transition: var(--transition);
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
 }
 
 .concejal-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--primary-blue);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(11, 34, 101, 0.12);
+  border-color: rgba(11, 34, 101, 0.3);
 }
 
-.concejal-avatar {
-  width: 48px;
-  height: 48px;
-  background: #edf2fc;
-  color: var(--primary-blue);
+.concejal-card-top-accent {
+  height: 5px;
+  width: 100%;
+}
+
+.concejal-card-top-accent.color-anr {
+  background: #dd3333;
+}
+
+.concejal-card-top-accent.color-plra {
+  background: #1d56c1;
+}
+
+.concejal-card-body {
+  padding: 1.6rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.concejal-mesa-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: linear-gradient(135deg, #f5a623, #d48806);
+  color: #0b2265;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(245, 166, 35, 0.35);
+  z-index: 2;
+}
+
+.concejal-photo-wrap {
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: #f1f5f9;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  margin-bottom: 1.1rem;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
 }
 
-.concejal-info h4 {
-  font-size: 0.95rem;
-  color: var(--primary-blue);
-  margin-bottom: 0.2rem;
+.concejal-photo-wrap.photo-fallback {
+  background: #edf2fc;
 }
 
-.concejal-cargo {
+.concejal-photo-wrap.photo-fallback::before {
+  content: '👤';
+  font-size: 2.2rem;
+}
+
+.concejal-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  font-size: 0.78rem;
-  color: var(--text-muted);
 }
 
-.concejal-partido-tag {
-  display: inline-block;
-  background: var(--bg-light);
-  color: #333333;
-  font-size: 0.7rem;
+.concejal-info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+}
+
+.concejal-info-block h4 {
+  font-size: 1.05rem;
+  color: var(--primary-blue);
   font-weight: 700;
-  padding: 0.15rem 0.5rem;
-  border-radius: var(--radius-sm);
-  margin-top: 0.3rem;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.concejal-cargo-pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+  background: #f1f5f9;
+  padding: 3px 12px;
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+}
+
+.concejal-cargo-pill.is-presidente {
+  background: rgba(245, 166, 35, 0.18);
+  color: #b37402;
+  border: 1px solid rgba(245, 166, 35, 0.45);
+  font-weight: 800;
+}
+
+.concejal-cargo-pill.is-vice {
+  background: rgba(29, 86, 193, 0.12);
+  color: #1d56c1;
+  border: 1px solid rgba(29, 86, 193, 0.3);
+  font-weight: 800;
+}
+
+.concejal-partido-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.1rem;
+}
+
+.concejal-partido-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.concejal-partido-link:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+.concejal-partido-link.partido-anr {
+  background: rgba(221, 51, 51, 0.1);
+  color: #c92a2a;
+  border: 1px solid rgba(221, 51, 51, 0.25);
+}
+
+.concejal-partido-link.partido-plra {
+  background: rgba(29, 86, 193, 0.1);
+  color: #1d56c1;
+  border: 1px solid rgba(29, 86, 193, 0.25);
+}
+
+.concejal-socials-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--border-color);
+  width: 100%;
+}
+
+.concejal-social-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.concejal-social-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.concejal-social-btn.facebook {
+  background: #1877f2;
+}
+
+.concejal-social-btn.instagram {
+  background: #d62093;
+}
+
+.concejal-social-btn.twitter {
+  background: #111111;
 }
 
 .directores-grid {

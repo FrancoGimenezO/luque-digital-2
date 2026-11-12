@@ -68,6 +68,8 @@ export default function App() {
         '#intendente',
         '#intendente-municipal',
         '#junta-municipal',
+        '#concejales',
+        '#concejales-municipales',
         '#directores',
         '#denuncias-consultas',
         '#ordenanzas-municipales',
@@ -169,6 +171,8 @@ export default function App() {
       case '#intendente-municipal':
         return <GobiernoPage defaultTab="intendente" onBackToHome={navigateToHome} />;
       case '#junta-municipal':
+      case '#concejales':
+      case '#concejales-municipales':
         return <GobiernoPage defaultTab="junta" onBackToHome={navigateToHome} />;
       case '#directores':
         return <GobiernoPage defaultTab="directores" onBackToHome={navigateToHome} />;
