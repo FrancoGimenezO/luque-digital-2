@@ -87,16 +87,33 @@ export default function App() {
       if (subpages.includes(hash) || hash === '#inicio' || !hash) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        // Desplazamiento a sección del home
-        const element = document.querySelector(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
+        // Desplazamiento a sección del home (inmediato y con respaldo para renderizado)
+        const scrollToTarget = () => {
+          const element = document.querySelector(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        };
+        scrollToTarget();
+        setTimeout(scrollToTarget, 80);
       }
     };
 
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Desplazamiento al montar si la URL inicial contiene un hash de sección del home
+  useEffect(() => {
+    const initialHash = window.location.hash;
+    if (initialHash && initialHash !== '#inicio') {
+      setTimeout(() => {
+        const element = document.querySelector(initialHash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 120);
+    }
   }, []);
 
   // Escuchar atajo Ctrl+K para abrir el buscador modal

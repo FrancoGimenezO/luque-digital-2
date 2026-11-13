@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Search, ChevronDown, ChevronRight, Phone, MapPin, Mail, Clock } from 'lucide-react';
+import { Menu, X, Search, ChevronDown, Phone, MapPin, Mail, Clock } from 'lucide-react';
 
 export default function Header({ onOpenSearch }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scheduleOpen, setScheduleOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [activeSubDropdown, setActiveSubDropdown] = useState(null);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -20,11 +19,6 @@ export default function Header({ onOpenSearch }) {
 
   const toggleDropdown = (name) => {
     setActiveDropdown((prev) => (prev === name ? null : name));
-    setActiveSubDropdown(null);
-  };
-
-  const toggleSubDropdown = (name) => {
-    setActiveSubDropdown((prev) => (prev === name ? null : name));
   };
 
   return (
@@ -214,346 +208,43 @@ export default function Header({ onOpenSearch }) {
                 </ul>
               </li>
 
-              {/* GOBIERNO ▾ */}
-              <li className="nav-item has-dropdown">
+              {/* GOBIERNO (Directo) */}
+              <li className="nav-item">
                 <a
-                  href="#intendente"
-                  onClick={(e) => {
-                    if (window.innerWidth <= 960) {
-                      e.preventDefault();
-                      toggleDropdown('gobierno');
-                    }
+                  href="#gobierno"
+                  onClick={() => {
+                    setMobileOpen(false);
+                    setActiveDropdown(null);
                   }}
                 >
-                  GOBIERNO <ChevronDown size={13} className="nav-arrow" />
+                  GOBIERNO
                 </a>
-                <ul className={`dropdown ${activeDropdown === 'gobierno' ? 'dropdown-open' : ''}`}>
-                  <li>
-                    <a
-                      href="#intendente"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
-                    >
-                      Intendente Municipal
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#junta-municipal"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
-                    >
-                      Junta Municipal
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#directores"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
-                    >
-                      Directores
-                    </a>
-                  </li>
-                </ul>
               </li>
 
-              {/* TRANSPARENCIA ▾ */}
-              <li className="nav-item has-dropdown">
+              {/* TRANSPARENCIA (Directo) */}
+              <li className="nav-item">
                 <a
-                  href="#ordenanzas-municipales"
-                  onClick={(e) => {
-                    if (window.innerWidth <= 960) {
-                      e.preventDefault();
-                      toggleDropdown('transparencia');
-                    }
+                  href="#transparencia"
+                  onClick={() => {
+                    setMobileOpen(false);
+                    setActiveDropdown(null);
                   }}
                 >
-                  TRANSPARENCIA <ChevronDown size={13} className="nav-arrow" />
+                  TRANSPARENCIA
                 </a>
-                <ul className={`dropdown ${activeDropdown === 'transparencia' ? 'dropdown-open' : ''}`}>
-                  {/* 1. Denuncias O Consultas */}
-                  <li>
-                    <a
-                      href="#denuncias-consultas"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
-                    >
-                      Denuncias O Consultas
-                    </a>
-                  </li>
-
-                  {/* 2. Ordenanzas Municipales */}
-                  <li>
-                    <a
-                      href="#ordenanzas-municipales"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
-                    >
-                      Ordenanzas Municipales
-                    </a>
-                  </li>
-
-                  {/* 3. Resoluciones Municipales */}
-                  <li>
-                    <a
-                      href="#resoluciones-municipales"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
-                    >
-                      Resoluciones Municipales
-                    </a>
-                  </li>
-
-                  {/* 4. Consejo Del FONACIDE */}
-                  <li>
-                    <a
-                      href="#fonacide"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
-                    >
-                      Consejo Del FONACIDE
-                    </a>
-                  </li>
-
-                  {/* 5. Normativas Legales Vigentes */}
-                  <li>
-                    <a
-                      href="#ordenanzas-municipales"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
-                    >
-                      Normativas Legales Vigentes
-                    </a>
-                  </li>
-
-                  {/* 6. Presupuesto General */}
-                  <li>
-                    <a
-                      href="#presupuesto-general"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
-                    >
-                      Presupuesto General
-                    </a>
-                  </li>
-
-                  {/* 7. PATIP ▸ */}
-                  <li className="has-sub-dropdown">
-                    <a
-                      href="#patip"
-                      onClick={(e) => {
-                        if (window.innerWidth <= 960) {
-                          e.preventDefault();
-                          toggleSubDropdown('patip');
-                        } else {
-                          setMobileOpen(false);
-                          setActiveDropdown(null);
-                        }
-                      }}
-                    >
-                      <span>PATIP</span>
-                      <ChevronRight size={13} className="sub-arrow" />
-                    </a>
-                    <ul className={`sub-dropdown ${activeSubDropdown === 'patip' ? 'sub-dropdown-open' : ''}`}>
-                      <li>
-                        <a
-                          href="#patip"
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setActiveDropdown(null);
-                            setActiveSubDropdown(null);
-                          }}
-                        >
-                          Matriz de Seguimiento Cumplimiento
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#patip"
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setActiveDropdown(null);
-                            setActiveSubDropdown(null);
-                          }}
-                        >
-                          Plan Anual de Transparencia (PATIP)
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-
-                  {/* 8. Ley 5189/14 ▸ */}
-                  <li className="has-sub-dropdown">
-                    <a
-                      href="#ley-5189"
-                      onClick={(e) => {
-                        if (window.innerWidth <= 960) {
-                          e.preventDefault();
-                          toggleSubDropdown('ley5189');
-                        } else {
-                          setMobileOpen(false);
-                          setActiveDropdown(null);
-                        }
-                      }}
-                    >
-                      <span>Ley 5189/14</span>
-                      <ChevronRight size={13} className="sub-arrow" />
-                    </a>
-                    <ul className={`sub-dropdown ${activeSubDropdown === 'ley5189' ? 'sub-dropdown-open' : ''}`}>
-                      <li>
-                        <a
-                          href="#ley-5189"
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setActiveDropdown(null);
-                            setActiveSubDropdown(null);
-                          }}
-                        >
-                          Salarios de Funcionarios Ley 5189/14
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#ley-5189"
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setActiveDropdown(null);
-                            setActiveSubDropdown(null);
-                          }}
-                        >
-                          Estructura y Remuneraciones
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-
-                  {/* 9. Ley 5282/14 */}
-                  <li>
-                    <a
-                      href="#ley-5282"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
-                    >
-                      Ley 5282/14
-                    </a>
-                  </li>
-
-                  {/* 10. LEY 7089/23 ▸ */}
-                  <li className="has-sub-dropdown">
-                    <a
-                      href="#ley-7089"
-                      onClick={(e) => {
-                        if (window.innerWidth <= 960) {
-                          e.preventDefault();
-                          toggleSubDropdown('ley7089');
-                        } else {
-                          setMobileOpen(false);
-                          setActiveDropdown(null);
-                        }
-                      }}
-                    >
-                      <span>LEY 7089/23</span>
-                      <ChevronRight size={13} className="sub-arrow" />
-                    </a>
-                    <ul className={`sub-dropdown ${activeSubDropdown === 'ley7089' ? 'sub-dropdown-open' : ''}`}>
-                      <li>
-                        <a
-                          href="#ley-7089"
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setActiveDropdown(null);
-                            setActiveSubDropdown(null);
-                          }}
-                        >
-                          Altas y Bajas – Resoluciones Ley 7089/23
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#ley-7089"
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setActiveDropdown(null);
-                            setActiveSubDropdown(null);
-                          }}
-                        >
-                          Marco Legal Conflicto de Intereses
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
               </li>
 
-              {/* GESTIONES MUNICIPALES ▾ */}
-              <li className="nav-item has-dropdown">
+              {/* GESTIONES MUNICIPALES (Directo) */}
+              <li className="nav-item">
                 <a
                   href="#gestiones"
-                  onClick={(e) => {
-                    if (window.innerWidth <= 960) {
-                      e.preventDefault();
-                      toggleDropdown('gestiones');
-                    }
+                  onClick={() => {
+                    setMobileOpen(false);
+                    setActiveDropdown(null);
                   }}
                 >
-                  GESTIONES MUNICIPALES <ChevronDown size={13} className="nav-arrow" />
+                  GESTIONES MUNICIPALES
                 </a>
-                <ul className={`dropdown ${activeDropdown === 'gestiones' ? 'dropdown-open' : ''}`}>
-                  <li>
-                    <a
-                      href="#gestiones"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
-                    >
-                      Registro de Conducir
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#gestiones"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
-                    >
-                      Habilitación de Vehículos
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#gestiones"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
-                    >
-                      Guía Completa de Trámites
-                    </a>
-                  </li>
-                </ul>
               </li>
 
               {/* CONTACTO */}
