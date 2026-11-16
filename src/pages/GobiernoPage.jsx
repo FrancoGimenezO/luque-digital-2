@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import PageHero from './PageHero.jsx';
 import {
   UserCheck,
@@ -20,6 +20,17 @@ import { mayorInfo } from '../data/content.js';
 
 export default function GobiernoPage({ defaultTab = 'intendente', onBackToHome }) {
   const [activeTab, setActiveTab] = useState(defaultTab);
+
+  useEffect(() => {
+    setActiveTab(defaultTab);
+  }, [defaultTab]);
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    if (tab === 'intendente') window.location.hash = '#intendente';
+    if (tab === 'junta') window.location.hash = '#junta-municipal';
+    if (tab === 'directores') window.location.hash = '#directores';
+  };
 
   // Estados para Concejales
   const [concejalFilter, setConcejalFilter] = useState('Todos');
@@ -498,7 +509,7 @@ export default function GobiernoPage({ defaultTab = 'intendente', onBackToHome }
           <div className="gobierno-tabs-bar" role="tablist">
             <button
               className={`gobierno-tab-btn ${activeTab === 'intendente' ? 'active' : ''}`}
-              onClick={() => setActiveTab('intendente')}
+              onClick={() => handleTabChange('intendente')}
               role="tab"
               aria-selected={activeTab === 'intendente'}
             >
@@ -507,7 +518,7 @@ export default function GobiernoPage({ defaultTab = 'intendente', onBackToHome }
             </button>
             <button
               className={`gobierno-tab-btn ${activeTab === 'junta' ? 'active' : ''}`}
-              onClick={() => setActiveTab('junta')}
+              onClick={() => handleTabChange('junta')}
               role="tab"
               aria-selected={activeTab === 'junta'}
             >
@@ -516,7 +527,7 @@ export default function GobiernoPage({ defaultTab = 'intendente', onBackToHome }
             </button>
             <button
               className={`gobierno-tab-btn ${activeTab === 'directores' ? 'active' : ''}`}
-              onClick={() => setActiveTab('directores')}
+              onClick={() => handleTabChange('directores')}
               role="tab"
               aria-selected={activeTab === 'directores'}
             >

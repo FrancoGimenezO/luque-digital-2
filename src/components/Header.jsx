@@ -27,6 +27,15 @@ export default function Header({ onOpenSearch }) {
     setActiveSubDropdown((prev) => (prev === name ? null : name));
   };
 
+  const handleNavClick = (targetHash) => {
+    setMobileOpen(false);
+    setActiveDropdown(null);
+    setActiveSubDropdown(null);
+    if (targetHash && window.location.hash === targetHash) {
+      window.dispatchEvent(new Event('hashchange'));
+    }
+  };
+
   return (
     <>
       {/* Cinta tricolor paraguaya en la parte superior */}
@@ -148,10 +157,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#historia"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#historia')}
                     >
                       Historia
                     </a>
@@ -159,10 +165,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#lugares-historicos"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#lugares-historicos')}
                     >
                       Lugares y Edificios Históricos
                     </a>
@@ -170,10 +173,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#barrios"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#barrios')}
                     >
                       Barrios
                     </a>
@@ -181,10 +181,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#recreacion"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#recreacion')}
                     >
                       Recreación y Espacios Públicos
                     </a>
@@ -192,10 +189,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#eventos"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#eventos')}
                     >
                       Eventos
                     </a>
@@ -203,10 +197,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#mercados-ferias"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#mercados-ferias')}
                     >
                       Mercados y Ferias
                     </a>
@@ -231,10 +222,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#intendente"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#intendente')}
                     >
                       Intendente Municipal
                     </a>
@@ -242,10 +230,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#junta-municipal"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#junta-municipal')}
                     >
                       Junta Municipal
                     </a>
@@ -253,10 +238,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#directores"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#directores')}
                     >
                       Directores
                     </a>
@@ -282,10 +264,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#denuncias-consultas"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#denuncias-consultas')}
                     >
                       Denuncias O Consultas
                     </a>
@@ -295,10 +274,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#ordenanzas-municipales"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#ordenanzas-municipales')}
                     >
                       Ordenanzas Municipales
                     </a>
@@ -308,10 +284,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#resoluciones-municipales"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#resoluciones-municipales')}
                     >
                       Resoluciones Municipales
                     </a>
@@ -321,10 +294,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#fonacide"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#fonacide')}
                     >
                       Consejo Del FONACIDE
                     </a>
@@ -333,11 +303,8 @@ export default function Header({ onOpenSearch }) {
                   {/* 5. Normativas Legales Vigentes */}
                   <li>
                     <a
-                      href="#ordenanzas-municipales"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      href="#normativas-legales-vigentes"
+                      onClick={() => handleNavClick('#normativas-legales-vigentes')}
                     >
                       Normativas Legales Vigentes
                     </a>
@@ -347,10 +314,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#presupuesto-general"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#presupuesto-general')}
                     >
                       Presupuesto General
                     </a>
@@ -365,8 +329,7 @@ export default function Header({ onOpenSearch }) {
                           e.preventDefault();
                           toggleSubDropdown('patip');
                         } else {
-                          setMobileOpen(false);
-                          setActiveDropdown(null);
+                          handleNavClick('#patip');
                         }
                       }}
                     >
@@ -377,11 +340,7 @@ export default function Header({ onOpenSearch }) {
                       <li>
                         <a
                           href="#patip"
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setActiveDropdown(null);
-                            setActiveSubDropdown(null);
-                          }}
+                          onClick={() => handleNavClick('#patip')}
                         >
                           Matriz de Seguimiento Cumplimiento
                         </a>
@@ -389,11 +348,7 @@ export default function Header({ onOpenSearch }) {
                       <li>
                         <a
                           href="#patip"
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setActiveDropdown(null);
-                            setActiveSubDropdown(null);
-                          }}
+                          onClick={() => handleNavClick('#patip')}
                         >
                           Plan Anual de Transparencia (PATIP)
                         </a>
@@ -410,8 +365,7 @@ export default function Header({ onOpenSearch }) {
                           e.preventDefault();
                           toggleSubDropdown('ley5189');
                         } else {
-                          setMobileOpen(false);
-                          setActiveDropdown(null);
+                          handleNavClick('#ley-5189');
                         }
                       }}
                     >
@@ -422,11 +376,7 @@ export default function Header({ onOpenSearch }) {
                       <li>
                         <a
                           href="#ley-5189"
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setActiveDropdown(null);
-                            setActiveSubDropdown(null);
-                          }}
+                          onClick={() => handleNavClick('#ley-5189')}
                         >
                           Salarios de Funcionarios Ley 5189/14
                         </a>
@@ -434,11 +384,7 @@ export default function Header({ onOpenSearch }) {
                       <li>
                         <a
                           href="#ley-5189"
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setActiveDropdown(null);
-                            setActiveSubDropdown(null);
-                          }}
+                          onClick={() => handleNavClick('#ley-5189')}
                         >
                           Estructura y Remuneraciones
                         </a>
@@ -450,10 +396,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#ley-5282"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#ley-5282')}
                     >
                       Ley 5282/14
                     </a>
@@ -468,8 +411,7 @@ export default function Header({ onOpenSearch }) {
                           e.preventDefault();
                           toggleSubDropdown('ley7089');
                         } else {
-                          setMobileOpen(false);
-                          setActiveDropdown(null);
+                          handleNavClick('#ley-7089');
                         }
                       }}
                     >
@@ -480,11 +422,7 @@ export default function Header({ onOpenSearch }) {
                       <li>
                         <a
                           href="#ley-7089"
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setActiveDropdown(null);
-                            setActiveSubDropdown(null);
-                          }}
+                          onClick={() => handleNavClick('#ley-7089')}
                         >
                           Altas y Bajas – Resoluciones Ley 7089/23
                         </a>
@@ -492,11 +430,7 @@ export default function Header({ onOpenSearch }) {
                       <li>
                         <a
                           href="#ley-7089"
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setActiveDropdown(null);
-                            setActiveSubDropdown(null);
-                          }}
+                          onClick={() => handleNavClick('#ley-7089')}
                         >
                           Marco Legal Conflicto de Intereses
                         </a>
@@ -522,22 +456,16 @@ export default function Header({ onOpenSearch }) {
                 <ul className={`dropdown ${activeDropdown === 'gestiones' ? 'dropdown-open' : ''}`}>
                   <li>
                     <a
-                      href="#gestiones"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      href="#licencia-conducir"
+                      onClick={() => handleNavClick('#licencia-conducir')}
                     >
                       Registro de Conducir
                     </a>
                   </li>
                   <li>
                     <a
-                      href="#gestiones"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      href="#habilitacion-vehicular"
+                      onClick={() => handleNavClick('#habilitacion-vehicular')}
                     >
                       Habilitación de Vehículos
                     </a>
@@ -545,10 +473,7 @@ export default function Header({ onOpenSearch }) {
                   <li>
                     <a
                       href="#gestiones"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                      }}
+                      onClick={() => handleNavClick('#gestiones')}
                     >
                       Guía Completa de Trámites
                     </a>

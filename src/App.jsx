@@ -74,27 +74,65 @@ export default function App() {
         '#directores-municipales',
         '#gabinete',
         '#denuncias-consultas',
+        '#denuncias',
+        '#formulario-transparencia',
         '#ordenanzas-municipales',
+        '#ordenanzas',
+        '#normativas-legales-vigentes',
+        '#normativas',
         '#resoluciones-municipales',
+        '#resoluciones',
         '#fonacide',
+        '#consejo-del-fonacide',
         '#presupuesto-general',
+        '#presupuesto',
         '#patip',
+        '#matriz-patip',
+        '#plan-anual-patip',
         '#ley-5189',
+        '#salarios-de-funcionarios',
+        '#estructura-remuneraciones',
         '#ley-5282',
-        '#ley-7089'
+        '#informacion-publica',
+        '#ley-7089',
+        '#conflicto-de-intereses'
       ];
 
       if (subpages.includes(hash) || hash === '#inicio' || !hash) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === '#licencia-conducir' || hash === '#registro-conducir') {
+        const found = services.find((s) => s.id === 'licencia-conducir');
+        if (found) setSelectedService(found);
+        setTimeout(() => {
+          const el = document.getElementById('gestiones');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else if (hash === '#habilitacion-vehicular' || hash === '#habilitacion-rodados') {
+        const found = services.find((s) => s.id === 'habilitacion-vehicular');
+        if (found) setSelectedService(found);
+        setTimeout(() => {
+          const el = document.getElementById('gestiones');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else if (hash === '#gestiones') {
+        setTimeout(() => {
+          const el = document.getElementById('gestiones');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
       } else {
         // Desplazamiento a sección del home
-        const element = document.querySelector(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+        try {
+          const element = document.querySelector(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        } catch {
+          // ignore invalid query selector
         }
       }
     };
 
+    handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
@@ -171,39 +209,51 @@ export default function App() {
       // Menú GOBIERNO
       case '#intendente':
       case '#intendente-municipal':
-        return <GobiernoPage defaultTab="intendente" onBackToHome={navigateToHome} />;
+      case '#biografia-intendente':
+        return <GobiernoPage key={currentHash} defaultTab="intendente" onBackToHome={navigateToHome} />;
       case '#junta-municipal':
+      case '#junta':
       case '#concejales':
       case '#concejales-municipales':
-        return <GobiernoPage defaultTab="junta" onBackToHome={navigateToHome} />;
+        return <GobiernoPage key={currentHash} defaultTab="junta" onBackToHome={navigateToHome} />;
       case '#directores':
       case '#directores-municipales':
       case '#gabinete':
-        return <GobiernoPage defaultTab="directores" onBackToHome={navigateToHome} />;
+        return <GobiernoPage key={currentHash} defaultTab="directores" onBackToHome={navigateToHome} />;
 
       // Menú TRANSPARENCIA
       case '#denuncias-consultas':
       case '#denuncias':
-        return <TransparenciaPage defaultTab="denuncias" onBackToHome={navigateToHome} />;
+      case '#formulario-transparencia':
+        return <TransparenciaPage key={currentHash} defaultTab="denuncias" onBackToHome={navigateToHome} />;
       case '#ordenanzas-municipales':
       case '#ordenanzas':
-        return <TransparenciaPage defaultTab="ordenanzas" onBackToHome={navigateToHome} />;
+      case '#normativas-legales-vigentes':
+      case '#normativas':
+        return <TransparenciaPage key={currentHash} defaultTab="ordenanzas" onBackToHome={navigateToHome} />;
       case '#resoluciones-municipales':
       case '#resoluciones':
-        return <TransparenciaPage defaultTab="resoluciones" onBackToHome={navigateToHome} />;
+        return <TransparenciaPage key={currentHash} defaultTab="resoluciones" onBackToHome={navigateToHome} />;
       case '#fonacide':
-        return <TransparenciaPage defaultTab="fonacide" onBackToHome={navigateToHome} />;
+      case '#consejo-del-fonacide':
+        return <TransparenciaPage key={currentHash} defaultTab="fonacide" onBackToHome={navigateToHome} />;
       case '#presupuesto-general':
       case '#presupuesto':
-        return <TransparenciaPage defaultTab="presupuesto" onBackToHome={navigateToHome} />;
+        return <TransparenciaPage key={currentHash} defaultTab="presupuesto" onBackToHome={navigateToHome} />;
       case '#patip':
-        return <TransparenciaPage defaultTab="patip" onBackToHome={navigateToHome} />;
+      case '#matriz-patip':
+      case '#plan-anual-patip':
+        return <TransparenciaPage key={currentHash} defaultTab="patip" onBackToHome={navigateToHome} />;
       case '#ley-5189':
-        return <TransparenciaPage defaultTab="ley5189" onBackToHome={navigateToHome} />;
+      case '#salarios-de-funcionarios':
+      case '#estructura-remuneraciones':
+        return <TransparenciaPage key={currentHash} defaultTab="ley5189" onBackToHome={navigateToHome} />;
       case '#ley-5282':
-        return <TransparenciaPage defaultTab="ley5282" onBackToHome={navigateToHome} />;
+      case '#informacion-publica':
+        return <TransparenciaPage key={currentHash} defaultTab="ley5282" onBackToHome={navigateToHome} />;
       case '#ley-7089':
-        return <TransparenciaPage defaultTab="ley7089" onBackToHome={navigateToHome} />;
+      case '#conflicto-de-intereses':
+        return <TransparenciaPage key={currentHash} defaultTab="ley7089" onBackToHome={navigateToHome} />;
 
       // VISTA PRINCIPAL (HOME)
       default:

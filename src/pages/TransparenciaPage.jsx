@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import PageHero from './PageHero.jsx';
 import {
   ShieldCheck,
@@ -21,6 +21,28 @@ import {
 
 export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToHome }) {
   const [activeTab, setActiveTab] = useState(defaultTab);
+
+  useEffect(() => {
+    setActiveTab(defaultTab);
+  }, [defaultTab]);
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    const map = {
+      denuncias: '#denuncias-consultas',
+      ordenanzas: '#ordenanzas-municipales',
+      resoluciones: '#resoluciones-municipales',
+      fonacide: '#fonacide',
+      presupuesto: '#presupuesto-general',
+      patip: '#patip',
+      ley5189: '#ley-5189',
+      ley5282: '#ley-5282',
+      ley7089: '#ley-7089',
+    };
+    if (map[tab]) {
+      window.location.hash = map[tab];
+    }
+  };
   const [docSearch, setDocSearch] = useState('');
   const [ordCategory, setOrdCategory] = useState('Todas');
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -314,7 +336,7 @@ export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToH
           <div className="transparency-tabs-grid" role="tablist">
             <button
               className={`trans-tab-card ${activeTab === 'denuncias' ? 'active' : ''}`}
-              onClick={() => setActiveTab('denuncias')}
+              onClick={() => handleTabChange('denuncias')}
               role="tab"
             >
               <AlertCircle size={20} />
@@ -322,7 +344,7 @@ export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToH
             </button>
             <button
               className={`trans-tab-card ${activeTab === 'ordenanzas' ? 'active' : ''}`}
-              onClick={() => setActiveTab('ordenanzas')}
+              onClick={() => handleTabChange('ordenanzas')}
               role="tab"
             >
               <FileText size={20} />
@@ -330,7 +352,7 @@ export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToH
             </button>
             <button
               className={`trans-tab-card ${activeTab === 'resoluciones' ? 'active' : ''}`}
-              onClick={() => setActiveTab('resoluciones')}
+              onClick={() => handleTabChange('resoluciones')}
               role="tab"
             >
               <Scale size={20} />
@@ -338,7 +360,7 @@ export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToH
             </button>
             <button
               className={`trans-tab-card ${activeTab === 'fonacide' ? 'active' : ''}`}
-              onClick={() => setActiveTab('fonacide')}
+              onClick={() => handleTabChange('fonacide')}
               role="tab"
             >
               <Building size={20} />
@@ -346,7 +368,7 @@ export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToH
             </button>
             <button
               className={`trans-tab-card ${activeTab === 'presupuesto' ? 'active' : ''}`}
-              onClick={() => setActiveTab('presupuesto')}
+              onClick={() => handleTabChange('presupuesto')}
               role="tab"
             >
               <DollarSign size={20} />
@@ -354,7 +376,7 @@ export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToH
             </button>
             <button
               className={`trans-tab-card ${activeTab === 'patip' ? 'active' : ''}`}
-              onClick={() => setActiveTab('patip')}
+              onClick={() => handleTabChange('patip')}
               role="tab"
             >
               <ShieldCheck size={20} />
@@ -362,7 +384,7 @@ export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToH
             </button>
             <button
               className={`trans-tab-card ${activeTab === 'ley5189' ? 'active' : ''}`}
-              onClick={() => setActiveTab('ley5189')}
+              onClick={() => handleTabChange('ley5189')}
               role="tab"
             >
               <Users size={20} />
@@ -370,7 +392,7 @@ export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToH
             </button>
             <button
               className={`trans-tab-card ${activeTab === 'ley5282' ? 'active' : ''}`}
-              onClick={() => setActiveTab('ley5282')}
+              onClick={() => handleTabChange('ley5282')}
               role="tab"
             >
               <FolderOpen size={20} />
@@ -378,7 +400,7 @@ export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToH
             </button>
             <button
               className={`trans-tab-card ${activeTab === 'ley7089' ? 'active' : ''}`}
-              onClick={() => setActiveTab('ley7089')}
+              onClick={() => handleTabChange('ley7089')}
               role="tab"
             >
               <CheckCircle size={20} />
