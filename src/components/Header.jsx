@@ -106,8 +106,8 @@ export default function Header({ onOpenSearch }) {
           <div className="logo-area">
             <a href="#inicio" className="brand-logo-link">
               <img
-                src="/escudo-luque.png"
-                alt="Escudo de Luque"
+                src="/Logo_muni_2.png"
+                alt="Municipalidad de Luque"
                 className="logo-escudo"
                 width="48"
                 height="48"
