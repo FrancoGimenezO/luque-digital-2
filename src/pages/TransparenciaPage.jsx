@@ -21,6 +21,7 @@ import {
   Layers,
   BookOpen,
   Tag,
+  Clock,
 } from 'lucide-react';
 
 export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToHome }) {
