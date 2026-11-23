@@ -113,9 +113,11 @@ export default function Header({ onOpenSearch }) {
                 height="48"
               />
               <div className="logo-text-block">
-                <span className="logo-brand-title">
-                  SOMOS <span>LUQUE</span>
-                </span>
+                <img
+                  src="/slogan_1.png"
+                  alt="Somos Luque"
+                  className="logo-slogan-img"
+                />
                 <span className="logo-brand-sub">Municipalidad de Luque · Paraguay</span>
               </div>
             </a>

@@ -240,6 +240,14 @@ button {
   display: flex;
   flex-direction: column;
 }
+.logo-slogan-img {
+  height: 36px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 2px;
+}
 .logo-brand-title {
   font-size: 1.6rem;
   font-weight: 800;
