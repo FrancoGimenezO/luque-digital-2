@@ -1041,7 +1041,7 @@ export default function TransparenciaPage({ defaultTab = 'ordenanzas', onBackToH
                 </div>
 
                 {/* Banner de Estadísticas Rápidas */}
-                <div className="ord-stats-row">
+                <div className="resoluciones-stats-banner">
                   <div className="ord-stat-item">
                     <FileCheck size={22} className="ord-stat-icon" />
                     <div>
