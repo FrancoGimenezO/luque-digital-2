@@ -422,8 +422,9 @@ button {
    ========================================================================== */
 .hero-slider {
   position: relative;
-  background: #000000;
-  min-height: 540px;
+  background: #071946;
+  min-height: 560px;
+  height: clamp(560px, 70vh, 680px);
   display: flex;
   align-items: center;
   color: #ffffff;
@@ -435,6 +436,7 @@ button {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+  background-image: var(--bg-desktop, var(--bg-mobile));
   background-size: cover;
   background-position: center;
   display: flex;
@@ -445,6 +447,14 @@ button {
   opacity: 1;
   visibility: visible;
 }
+.slide-arpa {
+  background-position: center right;
+}
+@media (min-width: 769px) {
+  .slide-arpa {
+    background-image: url('/arpa-luque-desktop.jpg') !important;
+  }
+}
 .slide::before {
   content: '';
   position: absolute;
@@ -452,8 +462,8 @@ button {
   background: linear-gradient(
     90deg,
     rgba(7, 25, 70, 0.94) 0%,
-    rgba(11, 34, 101, 0.75) 55%,
-    rgba(11, 34, 101, 0.3) 100%
+    rgba(11, 34, 101, 0.75) 52%,
+    rgba(11, 34, 101, 0.25) 100%
   );
 }
 .slide-content {
@@ -1914,8 +1924,16 @@ button {
     padding: 0.8rem;
   }
 
+  .hero-slider {
+    min-height: 520px;
+    height: auto;
+  }
   .slide {
     padding: 0 2rem;
+  }
+  .slide-arpa {
+    background-image: var(--bg-mobile, url('/arpa-luque.jpg')) !important;
+    background-position: center top !important;
   }
   .slide-title {
     font-size: 2.2rem;
