@@ -184,5 +184,5 @@ export const mayorInfo = {
   title: 'Intendente Municipal de Luque',
   period: 'Período Constitucional de Gobierno',
   quote: '"Cuando unimos esfuerzos y cada uno aporta desde su lugar, logramos grandes cosas por nuestra querida ciudad."',
-  image: '/farias.jpg',
+  image: '/Hugo Farias.jpeg',
 };
