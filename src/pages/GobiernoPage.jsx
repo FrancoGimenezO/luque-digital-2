@@ -415,7 +415,7 @@ export default function GobiernoPage({ defaultTab = 'intendente', onBackToHome }
       partidoCorto: 'ANR',
       partidoColor: '#dd3333',
       partidoWiki: 'https://es.wikipedia.org/wiki/Partido_Colorado_(Paraguay)',
-      image: '/concejales/juan-angel-marecos.jpeg',
+      image: '/concejales/ABG. JUAN ÁNGEL MARECOS - COLORADO.jpg',
       facebook: 'https://www.facebook.com/',
       instagram: 'https://www.instagram.com/',
       twitter: 'https://twitter.com/',
