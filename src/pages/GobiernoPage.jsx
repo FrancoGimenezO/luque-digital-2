@@ -303,7 +303,7 @@ export default function GobiernoPage({ defaultTab = 'intendente', onBackToHome }
       partidoCorto: 'PLRA',
       partidoColor: '#1d56c1',
       partidoWiki: 'https://es.wikipedia.org/wiki/Partido_Liberal_Radical_Aut%C3%A9ntico',
-      image: '/concejales/francisca-franco.jpeg',
+      image: '/concejales/MAG. FRANCISCA FRANCO - LIBERAL.jpg',
       facebook: 'https://www.facebook.com/',
       instagram: 'https://www.instagram.com/',
       twitter: 'https://twitter.com/',
