@@ -443,7 +443,7 @@ export default function GobiernoPage({ defaultTab = 'intendente', onBackToHome }
       partidoCorto: 'PLRA',
       partidoColor: '#1d56c1',
       partidoWiki: 'https://es.wikipedia.org/wiki/Partido_Liberal_Radical_Aut%C3%A9ntico',
-      image: '/concejales/diego-romero.jpeg',
+      image: '/concejales/SANTIAGO FLORENTÍN - LIBERAL.jpg',
       facebook: 'https://www.facebook.com/',
       instagram: 'https://www.instagram.com/',
       twitter: 'https://twitter.com/',
