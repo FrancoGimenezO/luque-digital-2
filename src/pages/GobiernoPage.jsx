@@ -289,7 +289,7 @@ export default function GobiernoPage({ defaultTab = 'intendente', onBackToHome }
       partidoCorto: 'ANR',
       partidoColor: '#dd3333',
       partidoWiki: 'https://es.wikipedia.org/wiki/Partido_Colorado_(Paraguay)',
-      image: '/concejales/arnaldo-baeza.jpeg',
+      image: '/concejales/ABG. ARNALDO BAEZA - COLORADO.jpg',
       facebook: 'https://www.facebook.com/',
       instagram: 'https://www.instagram.com/',
       twitter: 'https://twitter.com/',
