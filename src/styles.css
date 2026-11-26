@@ -1168,6 +1168,7 @@ button {
   padding-left: 1.2rem;
   border-left: 3px solid var(--accent-yellow);
   margin-bottom: 1.5rem;
+  white-space: pre-line;
 }
 .mayor-commitments {
   display: grid;
@@ -4100,6 +4101,7 @@ button {
   font-size: 1.05rem;
   color: #333333;
   margin-bottom: 1.5rem;
+  white-space: pre-line;
 }
 
 .mayor-bio-text p {
