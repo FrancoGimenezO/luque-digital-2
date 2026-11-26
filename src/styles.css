@@ -458,6 +458,10 @@ button {
 .slide-arpa {
   background-position: center right;
 }
+.slide-conmebol {
+  background-position: center center;
+  background-size: cover;
+}
 @media (min-width: 769px) {
   .slide-arpa {
     background-image: url('/arpa-luque-desktop.jpg') !important;
@@ -1943,6 +1947,9 @@ button {
   .slide-arpa {
     background-image: var(--bg-mobile, url('/arpa-luque.jpg')) !important;
     background-position: center top !important;
+  }
+  .slide-conmebol {
+    background-position: 60% center !important;
   }
   .slide-title {
     font-size: 2.2rem;

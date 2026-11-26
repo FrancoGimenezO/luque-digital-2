@@ -28,8 +28,8 @@ const slidesData = [
   },
   {
     id: 'conmebol',
-    image: '/conmebol-luque.jpg',
-    imageDesktop: '/conmebol-luque.jpg',
+    image: '/Barrios-y-lugares-turisticos-de-LuqueOPC1.jpg',
+    imageDesktop: '/Barrios-y-lugares-turisticos-de-LuqueOPC1.jpg',
     title: 'Gestión moderna, cercana y transparente',
     titleHtml: 'Gestión moderna, <br>cercana y <br>transparente',
     desc: 'Optimizamos la atención ciudadana con trámites más ágiles: habilitación de rodados, patentes comerciales y libre acceso a la información pública.',
