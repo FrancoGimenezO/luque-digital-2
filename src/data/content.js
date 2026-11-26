@@ -180,9 +180,20 @@ export const municipalStats = [
 ];
 
 export const mayorInfo = {
-  name: 'Hugo Farías Aquino',
+  name: 'Abg. Hugo Aldolfo Farías Aquino',
   title: 'Intendente Municipal de Luque',
   period: 'Período Constitucional de Gobierno',
-  quote: '"Cuando unimos esfuerzos y cada uno aporta desde su lugar, logramos grandes cosas por nuestra querida ciudad."',
+  quote: '"Hugo Adolfo Farías Aquino es abogado, empresario y servidor público luqueño, profundamente identificado con su ciudad, su historia y sus tradiciones. Proviene de una familia de arraigadas raíces luqueñas.
+Es hijo de Osvaldo Ramón Farías Vergara y Aida Dianora Aquino de Farías. Creció junto a sus hermanos Osvaldo, Christian y Gustavo, en un entorno familiar estrechamente vinculado a la comunidad luqueña. Es padre de Hugo Sebastián y Hugo Jesús Farías.
+Formación y trayectoria profesional
+Abogado formado en la Universidad Nacional de Asunción, cuenta con experiencia tanto en el sector empresarial privado como en la administración pública.
+Durante 14 años se desempeñó como juez de Faltas de la Municipalidad de Luque, función que le permitió conocer el funcionamiento institucional, la normativa municipal y distintas realidades de la comunidad. Posteriormente, renunció al cargo para dedicarse plenamente a su candidatura a la Intendencia Municipal.
+Trayectoria y compromiso con Luque
+Su vínculo con Luque está marcado por una historia familiar de varias generaciones, un profundo sentido de pertenencia y el compromiso de contribuir al desarrollo de la comunidad.
+El 4 de octubre de 2026 fue electo intendente municipal de Luque mediante el voto ciudadano y asumió oficialmente sus funciones el 3 de noviembre de ese mismo año, para el periodo constitucional 2026–2031.
+Visión de gestión
+Al frente de la Municipalidad de Luque, orienta su gestión hacia el fortalecimiento de los servicios públicos, la modernización institucional, el desarrollo urbano y una administración cercana a la ciudadanía. Su visión se fundamenta en la responsabilidad, la transparencia, la planificación y el diálogo con los distintos sectores de la comunidad.
+Con el orgullo de sus raíces y la responsabilidad de representar a su ciudad, Hugo Adolfo Farías Aquino asume el compromiso de trabajar por Un Luque Mejor, honrando su historia y proyectando su desarrollo hacia el futuro.
+"',
   image: '/Hugo Farias.jpeg',
 };
