@@ -488,29 +488,27 @@ export default function BarriosPage({ onBackToHome }) {
                   <h3>Mapa de Barrios y Lugares Turísticos</h3>
                 </div>
 
-                <div className="barrios-map-img-frame" onClick={() => setIsMapModalOpen(true)} title="Hacé clic para ampliar el mapa">
-                  <img
-                    src="/Barrios-y-lugares-turisticos-de-LuqueOPC1.jpg"
-                    alt="Mapa oficial de Barrios y Lugares Turísticos de Luque"
+                <div className="barrios-map-img-frame" style={{ cursor: 'default' }}>
+                  <iframe
+                    src="https://maps.google.com/maps?q=Luque,+Paraguay&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    title="Mapa oficial de Barrios y Distrito de Luque"
                     loading="lazy"
-                    className="barrios-map-image"
-                  />
-                  <div className="barrios-map-overlay-badge">
-                    <Maximize2 size={16} />
-                    <span>Hacé clic para ampliar el mapa</span>
-                  </div>
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    style={{ width: '100%', height: '420px', border: 0, display: 'block' }}
+                  ></iframe>
                 </div>
 
                 <div style={{ padding: '0.85rem 1.25rem', background: '#f8fafc', borderTop: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', fontSize: '0.8rem', color: '#475569' }}>
                   <span>División política con límites y principales atractivos</span>
                   <a
-                    href="/Barrios-y-lugares-turisticos-de-LuqueOPC1.jpg"
+                    href="https://www.google.com/maps/place/Luque,+Paraguay"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="map-download-link"
                     style={{ color: 'var(--primary-blue)', fontWeight: 700, textDecoration: 'none' }}
                   >
-                    Descargar Mapa HD ↗
+                    Abrir en Google Maps ↗
                   </a>
                 </div>
               </div>
@@ -676,22 +674,26 @@ export default function BarriosPage({ onBackToHome }) {
                 <X size={20} />
               </button>
             </div>
-            <div className="barrio-modal-body">
-              <img
-                src="/Barrios-y-lugares-turisticos-de-LuqueOPC1.jpg"
-                alt="Mapa oficial ampliado de Luque"
-                className="barrio-modal-img"
-              />
+            <div className="barrio-modal-body" style={{ padding: 0 }}>
+              <iframe
+                src="https://maps.google.com/maps?q=Luque,+Paraguay&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                title="Mapa oficial ampliado de Luque"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                style={{ width: '100%', height: '70vh', minHeight: '420px', border: 0, display: 'block' }}
+              ></iframe>
             </div>
             <div className="barrio-modal-footer">
               <span>Municipalidad de Luque · Departamento Central, Paraguay</span>
               <a
-                href="/Barrios-y-lugares-turisticos-de-LuqueOPC1.jpg"
-                download="Mapa-Barrios-Luque.jpg"
+                href="https://www.google.com/maps/place/Luque,+Paraguay"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-navy"
                 style={{ padding: '0.4rem 0.9rem', fontSize: '0.85rem' }}
               >
-                Descargar Imagen en Alta Calidad
+                Abrir en Google Maps ↗
               </a>
             </div>
           </div>
