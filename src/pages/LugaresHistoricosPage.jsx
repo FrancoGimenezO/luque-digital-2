@@ -18,6 +18,10 @@ import {
   ChevronDown,
   ChevronUp,
   Search,
+  Building,
+  Plane,
+  Trophy,
+  Gem,
 } from 'lucide-react';
 
 export default function LugaresHistoricosPage({ onBackToHome }) {
@@ -135,14 +139,170 @@ export default function LugaresHistoricosPage({ onBackToHome }) {
       ],
     },
     {
+      id: 'monumento-residentas',
+      name: 'Monumento a Las Residentas',
+      category: 'Monumentos Cívicos',
+      isOfficial: true,
+      officialBadge: 'Monumento Cívico y Escultórico Nacional',
+      year: 'Inaugurado en 1979 · Homenaje a la Mujer Paraguaya',
+      image: '/Monumento de la Residentas.jpg',
+      fallbackImage: '/historia-plaza.jpg',
+      location: 'Rotonda de Acceso Luque - Asunción (Autopista Silvio Pettirossi y Avda. Gral. Aquino)',
+      schedule: 'Espacio público y monumento histórico: Acceso libre permanente las 24 hs',
+      googleMapsUrl: 'https://maps.google.com/?q=Monumento+a+las+Residentas+Luque',
+      mapEmbedUrl:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.7245523945415!2d-57.53420008498877!3d-25.26380008386008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da77f0c507b9f%3A0xe54d8ec6fe9b50b7!2sMonumento%20a%20las%20Residentas!5e0!3m2!1ses!2spy!4v1652836100000!5m2!1ses!2spy',
+      paragraphs: [
+        'Majestuosa obra escultórica creada por el notable artista plástico paraguayo Francisco Báez Rolón e inaugurada en 1979. Rinde un sentido y eterno homenaje a las mujeres paraguayas conocidas como "Las Residentas", quienes con heroísmo sobrehumano sostuvieron a la nación y reconstruyeron la patria tras la Guerra de la Triple Alianza.',
+        'Emplazado en el portal de entrada principal a la ciudad de Luque, el conjunto de figuras de bronce y cemento retrata a las abnegadas matronas en marcha hacia el destino nacional, portando herramientas de labranza, cántaros y bultos con sus pertenencias.',
+        'El monumento está rodeado por un parque ajardinado, palmeras autóctonas y una fuente de agua que jerarquiza el acceso vial más transitado entre la capital y Luque.',
+      ],
+      highlights: [
+        'Obra cumbre del célebre escultor paraguayo Francisco Báez Rolón inaugurada en 1979',
+        'Homenaje imperecedero al sacrificio, abnegación y valentía de la mujer paraguaya',
+        'Escultura monumental con expresivas figuras de mujeres en actitud de marcha y refundación',
+        'Postal icónica de bienvenida situada en la rotonda de ingreso de la Autopista Silvio Pettirossi',
+      ],
+    },
+    {
+      id: 'casona-julio-correa',
+      name: 'Centro Cultural y Casona Museo Julio Correa',
+      category: 'Arquitectura Civil',
+      isOfficial: true,
+      officialBadge: 'Monumento Histórico y Cultural Nacional',
+      year: 'Construcción c. 1930 · Cuna del Teatro Guaraní',
+      image: '/Casona Julio Correa.jpg',
+      fallbackImage: '/historia-vivienda.jpg',
+      location: 'Calle Antequera e/ Julio Correa (Barrio Julio Correa, Luque)',
+      schedule: 'Lunes a Viernes de 07:00 a 17:00 hs | Sábados de 08:00 a 12:00 hs',
+      googleMapsUrl: 'https://maps.google.com/?q=Centro+Cultural+Julio+Correa+Luque',
+      mapEmbedUrl:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.1200000000000!2d-57.48260000000000!3d-25.26780000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da55555555555%3A0x1111111111111111!2sCentro%20Cultural%20Julio%20Correa!5e0!3m2!1ses!2spy!4v1652836200000!5m2!1ses!2spy',
+      paragraphs: [
+        'Histórica casona solariega donde residió, compuso y actuó Don Julio Correa (1890-1953), insigne dramaturgo, poeta y actor luqueño, unánimemente proclamado como el creador y padre del Teatro en Lengua Guaraní con obras inmortales como "Sandia Ko\'e", "Guerra Aja" y "Tereho Jeý Frantépe".',
+        'El inmueble preserva con fidelidad la arquitectura típica de las quintas suburbanas paraguayas de inicios del siglo XX: corredores jere perimetrales con pilares de madera labrada, techos de tejas coloniales con tacuara y pisos artesanales, rodeada de un añoso patio arbolado.',
+        'Hoy funciona como Centro Cultural y Museo Municipal, albergando la sala teatral "Julio Correa", colecciones de manuscritos, vestuarios originales de sus elencos de época, retratos familiares y mobiliario histórico.',
+      ],
+      highlights: [
+        'Residencia y taller creativo de Don Julio Correa, prócer indiscutido del teatro en guaraní',
+        'Auténtica edificación de arquitectura vernácula con amplios corredores jere y patio tradicional',
+        'Acervo patrimonial con libretos originales, fotos históricas, vestuario y enseres personales',
+        'Sede activa de talleres municipales de actuación, peñas literarias y festivales teatrales',
+      ],
+    },
+    {
+      id: 'museo-conmebol',
+      name: 'Museo del Fútbol Sudamericano (CONMEBOL)',
+      category: 'Museos y Cultura',
+      isOfficial: true,
+      officialBadge: 'Museo Deportivo Internacional',
+      year: 'Inaugurado en 2009 · Modernización Total 2024',
+      image: '/Museo de la conmebol.jpg',
+      fallbackImage: '/conmebol-luque.jpg',
+      location: 'Autopista Silvio Pettirossi y Valois Rivarola (Sede Central CONMEBOL, Luque)',
+      schedule: 'Lunes a Viernes de 09:00 a 18:00 hs | Sábados de 09:00 a 14:00 hs (Entrada con agendamiento)',
+      googleMapsUrl: 'https://maps.google.com/?q=Museo+del+Futbol+Sudamericano+CONMEBOL+Luque',
+      mapEmbedUrl:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.8285523945415!2d-57.51950008498877!3d-25.25950008386008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da62a048756c7%3A0x7d6f55e5b3ee581b!2sCONMEBOL!5e0!3m2!1ses!2spy!4v1652835200000!5m2!1ses!2spy',
+      paragraphs: [
+        'El Museo del Fútbol Sudamericano, ubicado en el complejo de la CONMEBOL en Luque, es el epicentro de la memoria viva del deporte más apasionante del continente. Tras su completa renovación en 2024, ofrece una de las experiencias museísticas interactivas más avanzadas del mundo.',
+        'En sus salas se exponen con custodia los trofeos originales de mayor prestigio del fútbol universal: la mítica Copa Libertadores de América, la Copa Sudamericana y la centenaria Copa América, así como balones históricos y camisetas de campeones mundiales.',
+        'Cuenta con estaciones de realidad virtual inmersiva 360°, salas audiovisuales envolventes, estatuas hiperrealistas de íconos del fútbol como Pelé, Diego Armando Maradona y Lionel Messi, y muros interactivos que repasan la trayectoria de cada una de las asociaciones miembro.',
+      ],
+      highlights: [
+        'Trofeos originales de la Copa Libertadores, Copa América y Copa Sudamericana en exhibición',
+        'Estatuas realistas a escala natural de leyendas continentales (Pelé, Maradona, Messi)',
+        'Salas de tecnología inmersiva 360°, simuladores de penales y pantallas táctiles interactivas',
+        'Polo turístico y deportivo internacional de máxima jerarquía situado en Luque',
+      ],
+    },
+    {
+      id: 'aeropuerto-pettirossi',
+      name: 'Aeropuerto Internacional Silvio Pettirossi',
+      category: 'Monumentos Cívicos',
+      isOfficial: true,
+      officialBadge: 'Principal Portal Aéreo de la República',
+      year: 'Inaugurado en 1980 · Homenaje al Héroe de la Aviación Paraguaya',
+      image: '/Aeropuerto Silvio Pettirosis.jpg',
+      fallbackImage: '/historia-plaza.jpg',
+      location: 'Autopista Silvio Pettirossi (Territorio y Jurisdicción Municipal de Luque)',
+      schedule: 'Terminal de pasajeros y operaciones comerciales: Abierto 24 horas, los 365 días',
+      googleMapsUrl: 'https://maps.google.com/?q=Aeropuerto+Internacional+Silvio+Pettirossi+Luque',
+      mapEmbedUrl:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.6800000000003!2d-57.51920000000000!3d-25.23990000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da6f8566a5e0b%3A0x6b631f4961502476!2sAeropuerto%20Internacional%20Silvio%20Pettirossi!5e0!3m2!1ses!2spy!4v1652836300000!5m2!1ses!2spy',
+      paragraphs: [
+        'Principal aeropuerto internacional de la República del Paraguay, emplazado en el distrito de Luque. Rinde honor con su nombre a Don Silvio Pettirossi (1887-1916), pionero genial de la aviación paraguaya y figura ilustre de la aviación acrobática mundial que asombró a Europa y América a inicios del siglo XX.',
+        'La actual aeroestación fue habilitada el 20 de marzo de 1980, destacándose por su imponente torre de control, sus amplios espigones de embarque y una pista principal de 3.353 metros de longitud apta para aeronaves de fuselaje ancho.',
+        'Es el portal de bienvenida que recibe anualmente a más de un millón de pasajeros, albergando en sus pasillos monumentos conmemorativos a la aviación, exposiciones de artesanía de filigrana luqueña y centros de información turística.',
+      ],
+      highlights: [
+        'Mayor complejo aeroportuario internacional del país ubicado íntegramente en Luque',
+        'Homenaje permanente a Silvio Pettirossi, héroe civil y pionero de la aeronáutica internacional',
+        'Pista de 3.353 metros y arquitectura emblemática con torre de control panorámica',
+        'Punto neurálgico de conectividad aérea, turismo y logística de carga nacional',
+      ],
+    },
+    {
+      id: 'museo-olimpico',
+      name: 'Museo Olímpico Paraguayo',
+      category: 'Museos y Cultura',
+      isOfficial: true,
+      officialBadge: 'Patrimonio y Archivo Histórico del Deporte Nacional',
+      year: 'Parque Olímpico Fundado en 2017 · Sede de los Juegos ASU 2022',
+      image: '/comite olimpico.jpg',
+      fallbackImage: '/conmebol-luque.jpg',
+      location: 'Parque Olímpico - Acceso Ñu Guasu (Predio del Comité Olímpico Paraguayo, Luque)',
+      schedule: 'Lunes a Viernes de 08:00 a 16:30 hs (Visitas guiadas para colegios y público general)',
+      googleMapsUrl: 'https://maps.google.com/?q=Comite+Olimpico+Paraguayo+Luque',
+      mapEmbedUrl:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.4500000000003!2d-57.52850000000000!3d-25.27250000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da79c13d30b69%3A0xe54c12695576a89c!2sComit%C3%A9%20Ol%C3%ADmpico%20Paraguayo!5e0!3m2!1ses!2spy!4v1652835300000!5m2!1ses!2spy',
+      paragraphs: [
+        'Emplazado en el moderno predio del Parque Olímpico de Luque, el Museo Olímpico Paraguayo preserva, documenta y celebra las mayores glorias y epopeyas deportivas de la historia de la nación.',
+        'Entre sus tesoros más preciados custodia la histórica Medalla de Plata Olímpica conquistada por la Selección Paraguaya de Fútbol en los Juegos Olímpicos de Atenas 2004, antorchas de diversas ediciones olímpicas, diplomas de honor y uniformes de los atletas que representaron a Paraguay en citas ecuménicas.',
+        'El museo rinde homenaje a los héroes de los Juegos Suramericanos ASU 2022, donde Luque fue la sede principal del evento multidisciplinario más importante jamás organizado en el país, inspirando a las nuevas generaciones hacia los ideales de superación y juego limpio.',
+      ],
+      highlights: [
+        'Custodia de la Medalla de Plata Olímpica de Atenas 2004, máxima proeza del deporte nacional',
+        'Colección oficial de antorchas olímpicas, indumentarias históricas y medallas continentales',
+        'Homenaje a los Juegos Suramericanos ASU 2022 y atletas olímpicos paraguayos',
+        'Espacio educativo y motivacional para academias juveniles y visitas escolares',
+      ],
+    },
+    {
+      id: 'asora-py',
+      name: 'Centro Cultural y Museo de la Joyería - Asora Py',
+      category: 'Tradición Popular',
+      isOfficial: true,
+      officialBadge: 'Patrimonio Vivo de la Filigrana Luqueña',
+      year: 'Asociación Fundada en 2018 · Saber Artesanal Ancestral',
+      image: '/AsoraPy.jpg',
+      fallbackImage: '/arpa-luque.jpg',
+      location: 'Calle Pedro Juan Caballero c/ Valois Rivarola (Microcentro Histórico de Luque)',
+      schedule: 'Lunes a Sábados de 08:00 a 18:00 hs (Talleres demostrativos y sala de exposiciones)',
+      googleMapsUrl: 'https://maps.google.com/?q=Asora+Py+Luque',
+      mapEmbedUrl:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1752.7501649877352!2d-57.49154170135292!3d-25.26320961513301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da561f09ca0a9%3A0x2c70a08d51bdcce4!2sAntigua%20Estaci%C3%B3n%20del%20Tren!5e0!3m2!1ses!2spy!4v1652831846534!5m2!1ses!2spy',
+      paragraphs: [
+        'Luque ostenta con legítimo orgullo el título de "Capital de la Música y la Filigrana". La Asociación de Joyeros, Orfebres y Afines (Asora Py) congrega a los más virtuosos artesanos que mantienen vivo el arte secular de tejer hebras de plata y oro, declarado Patrimonio Cultural Inmaterial de la Nación.',
+        'En su sede y centro cultural, los visitantes pueden apreciar en vivo a los maestros orfebres trabajando con sopletes, pinzas y crisoles, transformando hilos de metal noble en flores de mburucuyá, arpas en miniatura, pendientes coloniales y relicarios.',
+        'El espacio dispone de una sala de museo con piezas maestras laureadas en ferias internacionales, un centro de formación para jóvenes orfebres y un salón de venta directa de joyas con sello de autenticidad luqueña.',
+      ],
+      highlights: [
+        'Custodia y promoción del arte de la filigrana luqueña en plata y oro',
+        'Taller viviente: observación directa del proceso de hilado, moldeado y soldado artesanal',
+        'Museo de orfebrería con piezas exclusivas premiadas a nivel nacional e internacional',
+        'Venta directa con certificado de origen y pureza del metal de orfebres luqueños',
+      ],
+    },
+    {
       id: 'peatonal-historica',
       name: 'Peatonal Histórica y Casonas de 1868',
       category: 'Arquitectura Civil',
       isOfficial: false,
       officialBadge: 'Circuito Histórico Urbano',
       year: 'Siglo XIX · Sede de Gobierno en 1868',
-      image: '/historia-vivienda.jpg',
-      fallbackImage: '/arpa-luque.jpg',
+      image: '/Peatonal Histórica y Casonas.jpg',
+      fallbackImage: '/historia-vivienda.jpg',
       location: 'Calle Mariscal López e/ Rosario y Cerro Corá',
       schedule: 'Acceso peatonal libre las 24 horas',
       googleMapsUrl: 'https://goo.gl/maps/Qe1J32mar2BGcifM6',
@@ -169,6 +329,7 @@ export default function LugaresHistoricosPage({ onBackToHome }) {
     'Monumentos Cívicos',
     'Tradición Popular',
     'Arquitectura Civil',
+    'Museos y Cultura',
   ];
 
   const filteredPlaces = places.filter((p) => {
@@ -199,7 +360,7 @@ export default function LugaresHistoricosPage({ onBackToHome }) {
       <PageHero
         eyebrow="PATRIMONIO CULTURAL Y EDILICIO DE LA CIUDAD"
         title="Lugares y Edificios Históricos"
-        subtitle="Conocé los monumentos, templos y sitios emblemáticos que forjaron la identidad luqueña: el Santuario Virgen del Rosario, la primera Estación del Tren, el Mausoleo del Gral. Elizardo Aquino y el tradicional Pesebre Hidráulico Sabaté."
+        subtitle="Conocé los monumentos, templos, museos y sitios emblemáticos que forjaron la identidad luqueña: el Santuario Virgen del Rosario, la Estación del Tren, el Mausoleo del Gral. Aquino, el Monumento a Las Residentas, la Casona Julio Correa, el Museo de la CONMEBOL, el Aeropuerto Silvio Pettirossi, el Museo Olímpico y Asora Py."
         category="Ciudad"
         badge="Patrimonio Protegido"
         onBackToHome={onBackToHome}
@@ -207,7 +368,7 @@ export default function LugaresHistoricosPage({ onBackToHome }) {
 
       <section className="section-pad">
         <div className="container">
-          {/* Tarjeta de Introducción con Accesos Rápidos a los 4 Sitios Oficiales */}
+          {/* Tarjeta de Introducción con Accesos Rápidos a Sitios Emblemáticos */}
           <div className="history-intro-card" style={{ marginBottom: '2.5rem' }}>
             <div className="history-intro-content" style={{ width: '100%' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
@@ -220,7 +381,7 @@ export default function LugaresHistoricosPage({ onBackToHome }) {
                 de los sitios oficiales para explorar su reseña documentada, fotos de época y ubicación exacta en Google Maps.
               </p>
 
-              {/* Botonera de Salto Rápido a los 4 Sitios Oficiales */}
+              {/* Botonera de Salto Rápido a Sitios Emblemáticos */}
               <div className="quick-jump-places-grid">
                 <a href="#santuario-rosario" className="quick-jump-place-pill">
                   <Church size={16} />
@@ -232,11 +393,35 @@ export default function LugaresHistoricosPage({ onBackToHome }) {
                 </a>
                 <a href="#mausoleo-aquino" className="quick-jump-place-pill">
                   <Award size={16} />
-                  <span>Mausoleo del Gral. Aquino</span>
+                  <span>Mausoleo Gral. Aquino</span>
+                </a>
+                <a href="#monumento-residentas" className="quick-jump-place-pill">
+                  <Landmark size={16} />
+                  <span>Monumento Las Residentas</span>
+                </a>
+                <a href="#casona-julio-correa" className="quick-jump-place-pill">
+                  <Building size={16} />
+                  <span>Casona Julio Correa</span>
+                </a>
+                <a href="#museo-conmebol" className="quick-jump-place-pill">
+                  <Trophy size={16} />
+                  <span>Museo de la CONMEBOL</span>
+                </a>
+                <a href="#aeropuerto-pettirossi" className="quick-jump-place-pill">
+                  <Plane size={16} />
+                  <span>Aeropuerto Pettirossi</span>
+                </a>
+                <a href="#museo-olimpico" className="quick-jump-place-pill">
+                  <Sparkles size={16} />
+                  <span>Museo Olímpico</span>
+                </a>
+                <a href="#asora-py" className="quick-jump-place-pill">
+                  <Gem size={16} />
+                  <span>Asora Py Filigrana</span>
                 </a>
                 <a href="#pesebre-sabate" className="quick-jump-place-pill">
                   <Sparkles size={16} />
-                  <span>Pesebre Hidráulico Sabaté</span>
+                  <span>Pesebre Sabaté</span>
                 </a>
               </div>
             </div>

@@ -17,6 +17,8 @@ import {
   ChevronDown,
   ChevronUp,
   Sparkles,
+  Landmark,
+  Coffee,
 } from 'lucide-react';
 
 export default function RecreacionPage({ onBackToHome }) {
@@ -144,9 +146,129 @@ export default function RecreacionPage({ onBackToHome }) {
         'Palcos preferenciales climatizados y cabinas de transmisión',
       ],
     },
+    {
+      id: 'plaza-mariscal-lopez',
+      name: 'Plaza Mariscal Francisco Solano López',
+      type: 'Plaza Histórica y Pulmón Cívico',
+      category: 'Plazas y Paseos',
+      image: '/Plaza Mariscal Lopez.jpg',
+      fallbackImage: '/historia-plaza.jpg',
+      extension: 'Manzana verde en el casco histórico y cívico',
+      location: 'Entre calles Mcal. López, Cerro Corá, Rosario y Capitán Bado (Microcentro)',
+      hours: 'Abierto libremente las 24 horas todos los días',
+      cost: 'Acceso Libre y Gratuito',
+      googleMapsUrl: 'https://maps.google.com/?q=Plaza+Mariscal+Lopez+Luque',
+      mapEmbedUrl:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3850.3439607375817!2d-57.4959007566448!3d-25.267401506716517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945daf8849a449b1%3A0x3a2f2fdcb61496e!2sPlaza%20Mariscal%20L%C3%B3pez!5e0!3m2!1ses!2spy!4v1652837100000!5m2!1ses!2spy',
+      description:
+        'Una de las plazas gemelas centrales de Luque, ubicada frente al histórico Santuario Virgen del Rosario. Se destaca por sus imponentes árboles centenarios, senderos adoquinados y bancos para el descanso tradicional. Es el punto de encuentro ciudadano predilecto para compartir el tereré, ferias artesanales y festivales cívicos.',
+      facilities: [
+        'Arboleda frondosa con sombra permanente de lapachos y palmeras',
+        'Camineros peatonales adoquinados con bancos y descanso urbano',
+        'Zona de juegos infantiles y esparcimiento familiar seguro',
+        'Punto neurálgico para ferias del libro, artesanías y orfebrería luqueña',
+        'Iluminación colonial nocturna y cercanía a casonas patrimoniales',
+      ],
+    },
+    {
+      id: 'plaza-gral-aquino',
+      name: 'Plaza General Elizardo Aquino',
+      type: 'Plaza Mayor y Monumento Cívico',
+      category: 'Plazas y Paseos',
+      image: '/Plaza Gral Elizardo Aquino.jpg',
+      fallbackImage: '/lugar-mausoleo.jpg',
+      extension: 'Plaza mayor y núcleo de la vida comunitaria luqueña',
+      location: 'Conectada con la Peatonal Histórica y calle Rosario (Centro de Luque)',
+      hours: 'Espacio público abierto permanentemente las 24 horas',
+      cost: 'Acceso Libre y Gratuito',
+      googleMapsUrl: 'https://maps.google.com/?q=Plaza+General+Aquino+Luque',
+      mapEmbedUrl:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3850.3439607375817!2d-57.4959007566448!3d-25.267401506716517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945daf8849a449b1%3A0x3a2f2fdcb61496e!2sMauseleo%20del%20Gral.%20Jos%C3%A9%20Elizardo%20Aquino!5e0!3m2!1ses!2spy!4v1652833335189!5m2!1ses!2spy',
+      description:
+        'La plaza cívica más importante de la ciudad de Luque. Alberga en su parte central el solemne Mausoleo del Gral. José Elizardo Aquino, prócer militar luqueño. Rodeada de flores, pérgolas y frondosos árboles, es el escenario de los grandes actos patrióticos, ferias comunitarias y actividades culturales al aire libre.',
+      facilities: [
+        'Mausoleo cívico histórico en homenaje al Gral. Elizardo Aquino',
+        'Pérgolas con jardines florales y bancos de plaza tradicionales',
+        'Pista central y explanada para conmemoraciones patrióticas y orquestas',
+        'Conexión directa con la peatonal histórica y centros comerciales',
+        'Cámaras de monitoreo y seguridad ciudadana permanente',
+      ],
+    },
+    {
+      id: 'skatepark-luque',
+      name: 'Skatepark Municipal de Luque',
+      type: 'Parque Deportivo de Deportes Urbanos',
+      category: 'Complejos Deportivos',
+      image: '/skatepark luque.jpg',
+      fallbackImage: '/ciclovia de luque.jpg',
+      extension: 'Circuito de hormigón pulido de más de 1.200 m²',
+      location: 'Predio de la Ciclovía Municipal (Barrio Bella Vista, Luque)',
+      hours: 'Lunes a Domingo de 07:00 a 22:30 hs (Con iluminación nocturna LED)',
+      cost: 'Acceso Libre y Gratuito',
+      googleMapsUrl: 'https://maps.google.com/?q=Skatepark+de+Luque',
+      mapEmbedUrl:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1752.7501649877352!2d-57.49154170135292!3d-25.26320961513301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da561f09ca0a9%3A0x2c70a08d51bdcce4!2sAntigua%20Estaci%C3%B3n%20del%20Tren!5e0!3m2!1ses!2spy!4v1652831846534!5m2!1ses!2spy',
+      description:
+        'Complejo de deportes sobre ruedas especialmente diseñado para skaters, patinadores inline y ciclistas BMX freestyle. Cuenta con rampas curvas (quarters), bowl profesional, barandas metálicas de deslizamiento, planos inclinados y cajones en hormigón de alta durabilidad.',
+      facilities: [
+        'Pista reglamentaria con bowls, quarters, rails y pirámides',
+        'Superficie de hormigón pulido de alta velocidad y adherencia',
+        'Iluminación nocturna LED de alta potencia para prácticas seguras',
+        'Gradas perimetrales para espectadores y deportistas en descanso',
+        'Integración directa al circuito aeróbico de la Ciclovía Municipal',
+      ],
+    },
+    {
+      id: 'paseo-humaita',
+      name: 'Paseo Humaitá de Luque',
+      type: 'Paseo Peatonal, Cultural y Gastronómico',
+      category: 'Circuitos Urbanos',
+      image: '/Paseo Humaita.jpg',
+      fallbackImage: '/historia-vivienda.jpg',
+      extension: 'Boulevard peatonal en el microcentro luqueño',
+      location: 'Calle Humaitá e/ Corrales y Rosario (Centro de Luque)',
+      hours: 'Abierto las 24 hs (Mayor esplendor gastronómico y cultural en tardes y noches)',
+      cost: 'Acceso Peatonal Libre y Gratuito',
+      googleMapsUrl: 'https://maps.google.com/?q=Paseo+Humaita+Luque',
+      mapEmbedUrl:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3850.3439607375817!2d-57.4959007566448!3d-25.267401506716517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945daf8849a449b1%3A0x3a2f2fdcb61496e!2sPlaza%20Mariscal%20L%C3%B3pez!5e0!3m2!1ses!2spy!4v1652837100000!5m2!1ses!2spy',
+      description:
+        'Encantador corredor peatonal que combina la tradición histórica con el arte urbano contemporáneo. Se distingue por su famoso cielo de paraguas multicolores, guirnaldas de luces suspendidas, murales temáticos y terrazas de cafeterías, heladerías y bares tradicionales.',
+      facilities: [
+        'Paseo peatonal adoquinado seguro y libre de circulación vehicular',
+        'Techo flotante de paraguas de colores y luces decorativas fotogénicas',
+        'Polo gastronómico con terrazas al aire libre, heladerías y cafés',
+        'Murales de arte urbano en homenaje a la identidad y cultura luqueña',
+        'Espacio ideal para fotografía urbana, paseos en pareja y tertulias familiares',
+      ],
+    },
+    {
+      id: 'estacion-los-jardines',
+      name: 'La Estación Los Jardines',
+      type: 'Paseo Comercial, Gastronómico y Familiar',
+      category: 'Circuitos Urbanos',
+      image: '/La estacion los Jardines.jpg',
+      fallbackImage: '/lugar-estacion.jpg',
+      extension: 'Parque comercial y gastronómico al aire libre',
+      location: 'Avda. General Aquino c/ José Concepción Ortiz (Luque)',
+      hours: 'Lunes a Domingos de 07:00 a 23:30 hs',
+      cost: 'Acceso Libre a paseos y estacionamiento para clientes',
+      googleMapsUrl: 'https://maps.google.com/?q=La+Estacion+Los+Jardines+Luque',
+      mapEmbedUrl:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.7500000000000!2d-57.49980000000000!3d-25.27150000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945daf0000000000%3A0x0000000000000000!2sLos%20Jardines%20Luque!5e0!3m2!1ses!2spy!4v1652837300000!5m2!1ses!2spy',
+      description:
+        'Moderno centro de esparcimiento familiar que evoca la entrañable arquitectura de las estaciones de ferrocarril paraguayas. Cuenta con un agradable bulevar ajardinado, áreas de juegos infantiles seguras, patios gastronómicos con reconocidas franquicias y locales comerciales.',
+      facilities: [
+        'Diseño arquitectónico temático inspirado en la historia ferroviaria de Luque',
+        'Plaza de comidas y restaurantes gourmet con mesas al aire libre',
+        'Juegos infantiles mecánicos e inflables supervisados para niños',
+        'Amplio estacionamiento vigilado y servicios bancarios / supermercado',
+        'Punto de encuentro seguro y moderno para eventos y meriendas de fin de semana',
+      ],
+    },
   ];
 
-  const categories = ['Todos', 'Parques y Naturaleza', 'Complejos Deportivos', 'Circuitos Urbanos'];
+  const categories = ['Todos', 'Parques y Naturaleza', 'Plazas y Paseos', 'Complejos Deportivos', 'Circuitos Urbanos'];
 
   const filteredParks = useMemo(() => {
     return parks.filter((p) => {
@@ -168,7 +290,7 @@ export default function RecreacionPage({ onBackToHome }) {
       <PageHero
         eyebrow="DEPORTE, SALUD Y ESPARCIMIENTO"
         title="Recreación y Espacios Públicos"
-        subtitle="Descubrí los grandes pulmones verdes, la ciclovía municipal, los complejos de alto rendimiento olímpico y el emblemático Estadio Feliciano Cáceres en Luque."
+        subtitle="Descubrí los grandes pulmones verdes, plazas cívicas, la ciclovía municipal, el Skatepark, el Paseo Humaitá, La Estación Los Jardines y los complejos deportivos de Luque."
         category="Ciudad"
         badge="Bienestar Urbano y Deportivo"
         onBackToHome={onBackToHome}
@@ -210,6 +332,26 @@ export default function RecreacionPage({ onBackToHome }) {
             <a href="#ciclovia-luque" className="quick-jump-place-pill">
               <Bike size={15} />
               <span>Ciclovía Municipal</span>
+            </a>
+            <a href="#plaza-mariscal-lopez" className="quick-jump-place-pill">
+              <TreePine size={15} />
+              <span>Plaza Mariscal López</span>
+            </a>
+            <a href="#plaza-gral-aquino" className="quick-jump-place-pill">
+              <Landmark size={15} />
+              <span>Plaza Gral. Aquino</span>
+            </a>
+            <a href="#skatepark-luque" className="quick-jump-place-pill">
+              <Bike size={15} />
+              <span>Skatepark Luque</span>
+            </a>
+            <a href="#paseo-humaita" className="quick-jump-place-pill">
+              <Sparkles size={15} />
+              <span>Paseo Humaitá</span>
+            </a>
+            <a href="#estacion-los-jardines" className="quick-jump-place-pill">
+              <Coffee size={15} />
+              <span>La Estación Los Jardines</span>
             </a>
             <a href="#feliciano-caceres" className="quick-jump-place-pill">
               <Trophy size={15} />

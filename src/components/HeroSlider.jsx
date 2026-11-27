@@ -3,7 +3,9 @@ import { ArrowUpRight, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slidesData = [
   {
+    id: 'santuario',
     image: '/santuario-luque-opt.jpg',
+    imageDesktop: '/santuario-luque-opt.jpg',
     title: 'Luque avanza con su gente y su historia',
     titleHtml: 'Luque avanza <br>con su gente <br>y su historia',
     desc: 'Bienvenidos al portal oficial del Gobierno Municipal de la Ciudad de Luque. Gestioná trámites, normativas y servicios cívicos al alcance de cada vecino.',
@@ -13,7 +15,9 @@ const slidesData = [
     btnSecHref: 'https://www.youtube.com/results?search_query=Municipalidad+de+Luque+Paraguay',
   },
   {
+    id: 'arpa',
     image: '/arpa-luque.jpg',
+    imageDesktop: '/arpa-luque-desktop.jpg',
     title: 'Cuna de la música, el arte y la tradición',
     titleHtml: 'Cuna de la música, <br>el arte y la <br>tradición',
     desc: 'Capital de la orfebrería en filigrana de oro y plata, cuna del arpa paraguaya y tierra de identidad, fe y fervor auriazul.',
@@ -23,7 +27,9 @@ const slidesData = [
     btnSecHref: '#lugares-historicos',
   },
   {
-    image: '/conmebol-luque.jpg',
+    id: 'conmebol',
+    image: '/Barrios-y-lugares-turisticos-de-LuqueOPC1.jpg',
+    imageDesktop: '/Barrios-y-lugares-turisticos-de-LuqueOPC1.jpg',
     title: 'Gestión moderna, cercana y transparente',
     titleHtml: 'Gestión moderna, <br>cercana y <br>transparente',
     desc: 'Optimizamos la atención ciudadana con trámites más ágiles: habilitación de rodados, patentes comerciales y libre acceso a la información pública.',
@@ -69,8 +75,12 @@ export default function HeroSlider() {
         return (
           <div
             key={index}
-            className={`slide ${isActive ? 'active' : ''}`}
-            style={{ backgroundImage: `url('${slide.image}')` }}
+            className={`slide slide-${slide.id || index} ${isActive ? 'active' : ''}`}
+            style={{
+              '--bg-desktop': `url('${slide.imageDesktop || slide.image}')`,
+              '--bg-mobile': `url('${slide.image}')`,
+              backgroundImage: `url('${slide.imageDesktop || slide.image}')`,
+            }}
             aria-hidden={!isActive}
           >
             <div className="slide-content">
